@@ -2,18 +2,17 @@ package ba.unsa.etf.rpr.domain;
 
 import java.util.Objects;
 
-public class User {
+public class User implements Idable{
     int userID;
     String username;
     String surname;
     String emailAddress;
 
-    public int getUserID() {
+    public int getId(){
         return userID;
     }
-
-    public void setUserID(int userID) {
-        this.userID = userID;
+    public void setId(int id){
+        this.userID = id;
     }
 
     public String getUsername() {
@@ -55,11 +54,11 @@ public class User {
         if (this == o) return true;
         if (!(o instanceof User)) return false;
         User user = (User) o;
-        return getUserID() == user.getUserID() && getUsername().equals(user.getUsername()) && getSurname().equals(user.getSurname()) && getEmailAddress().equals(user.getEmailAddress());
+        return getId() == user.getId() && getUsername().equals(user.getUsername()) && getSurname().equals(user.getSurname()) && getEmailAddress().equals(user.getEmailAddress());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getUserID(), getUsername(), getSurname(), getEmailAddress());
+        return Objects.hash(getId(), getUsername(), getSurname(), getEmailAddress());
     }
 }
