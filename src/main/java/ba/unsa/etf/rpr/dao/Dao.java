@@ -1,4 +1,6 @@
 package ba.unsa.etf.rpr.dao;
+import ba.unsa.etf.rpr.exceptions.MarketException;
+
 import java.util.List;
 
 /**
@@ -13,7 +15,7 @@ public interface Dao <T>{
      * @param id primary key of entity
      * @return Entity from database
      */
-    T getById(int id);
+    T getById(int id) throws MarketException;
 
     /**
      * Saves entity into database
