@@ -2,18 +2,17 @@ package ba.unsa.etf.rpr.domain;
 
 import java.util.Objects;
 
-public class Category {
+public class Category implements Idable {
     int categoryID;
     String name;
     String status;
-
-    public int getCategoryID() {
+    public int getId(){
         return categoryID;
     }
-
-    public void setCategoryID(int categoryID) {
-        this.categoryID = categoryID;
+    public void setId(int id){
+        this.categoryID = id;
     }
+
 
     public String getName() {
         return name;
@@ -45,11 +44,13 @@ public class Category {
         if (this == o) return true;
         if (!(o instanceof Category)) return false;
         Category category = (Category) o;
-        return getCategoryID() == category.getCategoryID() && getName().equals(category.getName()) && getStatus().equals(category.getStatus());
+        return getId() == category.getId() && getName().equals(category.getName()) && getStatus().equals(category.getStatus());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getCategoryID(), getName(), getStatus());
+        return Objects.hash(getId(), getName(), getStatus());
     }
+
+
 }

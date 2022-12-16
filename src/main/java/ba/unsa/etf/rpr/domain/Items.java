@@ -2,7 +2,7 @@ package ba.unsa.etf.rpr.domain;
 
 import java.util.Objects;
 
-public class Items {
+public class Items implements Idable{
     int itemID;
     String itemName;
     String price;
@@ -10,12 +10,11 @@ public class Items {
     int categoryID;
     int userID;
 
-    public int getItemID() {
+    public int getId(){
         return itemID;
     }
-
-    public void setItemID(int itemID) {
-        this.itemID = itemID;
+    public void setId(int id){
+        this.itemID = id;
     }
 
     public String getItemName() {
@@ -75,11 +74,11 @@ public class Items {
         if (this == o) return true;
         if (!(o instanceof Items)) return false;
         Items items = (Items) o;
-        return getItemID() == items.getItemID() && getCategoryID() == items.getCategoryID() && getUserID() == items.getUserID() && getItemName().equals(items.getItemName()) && getPrice().equals(items.getPrice()) && getDescription().equals(items.getDescription());
+        return getId() == items.getId() && getCategoryID() == items.getCategoryID() && getUserID() == items.getUserID() && getItemName().equals(items.getItemName()) && getPrice().equals(items.getPrice()) && getDescription().equals(items.getDescription());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getItemID(), getItemName(), getPrice(), getDescription(), getCategoryID(), getUserID());
+        return Objects.hash(getId(), getItemName(), getPrice(), getDescription(), getCategoryID(), getUserID());
     }
 }
