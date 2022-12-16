@@ -51,7 +51,7 @@ public abstract class AbstractDao <T extends Idable> implements Dao<T>{
         }
     }
     public List<T> getAll() throws MarketException{
-        String query = "SELECT * FROM" + tableName;
+        String query = "SELECT * FROM " + tableName;
         List<T> results = new ArrayList<T>();
         try {
             PreparedStatement stmt = getConnection().prepareStatement(query);
@@ -62,6 +62,17 @@ public abstract class AbstractDao <T extends Idable> implements Dao<T>{
             }
             rs.close();
             return results;
+        }catch (SQLException e){
+            throw new MarketException(e.getMessage(), e);
+        }
+    }
+
+    public void delete(int id) throws MarketException{
+        String sql = "DELETE FROM "+tableName+" WHERE id = ?";
+        try{
+            PreparedStatement stmt = getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            stmt.setObject(1, id);
+            stmt.executeUpdate();
         }catch (SQLException e){
             throw new MarketException(e.getMessage(), e);
         }

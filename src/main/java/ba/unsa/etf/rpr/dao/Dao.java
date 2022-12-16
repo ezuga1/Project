@@ -29,7 +29,7 @@ public interface Dao <T>{
      * @param item - bean to be uploaded. id must be populated
      * @return updated version of bean
      */
-    void delete(int id);
+    void delete(int id) throws MarketException;
 
     /**
      * Lists all entities from database. WARNING: Very slow operation because it reads all records.
