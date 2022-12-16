@@ -5,6 +5,7 @@ import ba.unsa.etf.rpr.exceptions.MarketException;
 
 import java.io.IOException;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -49,5 +50,20 @@ public abstract class AbstractDao <T extends Idable> implements Dao<T>{
             throw new MarketException(e.getMessage(), e);
         }
     }
-
+    public List<T> getAll() throws MarketException{
+        String query = "SELECT * FROM" + tableName;
+        List<T> results = new ArrayList<T>();
+        try {
+            PreparedStatement stmt = getConnection().prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+            while(rs.next()){ // result set is iterator.
+                T object = row2object(rs);
+                results.add(object);
+            }
+            rs.close();
+            return results;
+        }catch (SQLException e){
+            throw new MarketException(e.getMessage(), e);
+        }
+    }
 }
