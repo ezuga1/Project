@@ -108,6 +108,34 @@ public abstract class AbstractDao <T extends Idable> implements Dao<T>{
             throw new MarketException(e.getMessage(), e);
         }
     }
+    public T update(T item) throws MarketException{
+        Map<String, Object> row = object2row(item);
+        String updateColumns = prepareUpdateParts(row);
+        StringBuilder builder = new StringBuilder();
+        builder.append("UPDATE ")
+                .append(tableName)
+                .append(" SET ")
+                .append(updateColumns)
+                .append(" WHERE id = ?");
+
+        try{
+            PreparedStatement stmt = getConnection().prepareStatement(builder.toString());
+            int counter = 1;
+            for (Map.Entry<String, Object> entry: row.entrySet()) {
+                if (entry.getKey().equals("id")) continue; // skip ID
+                stmt.setObject(counter, entry.getValue());
+                counter++;
+            }
+            stmt.setObject(counter+1, item.getId());
+            stmt.executeUpdate();
+            return item;
+        }catch (SQLException e){
+            throw new MarketException(e.getMessage(), e);
+        }
+    }
+
+
+
     /**
      * Accepts KV storage of column names and return CSV of columns and question marks for insert statement
      * Example: (id, name, date) ?,?,?
@@ -130,4 +158,23 @@ public abstract class AbstractDao <T extends Idable> implements Dao<T>{
         return new AbstractMap.SimpleEntry<String,String>(columns.toString(), questions.toString());
     }
 
+    /**
+     * Prepare columns for update statement id=?, name=?, ...
+     * @param row
+     * @return
+     */
+    private String prepareUpdateParts(Map<String, Object> row){
+        StringBuilder columns = new StringBuilder();
+
+        int counter = 0;
+        for (Map.Entry<String, Object> entry: row.entrySet()) {
+            counter++;
+            if (entry.getKey().equals("id")) continue; //skip update of id due where clause
+            columns.append(entry.getKey()).append("= ?");
+            if (row.size() != counter) {
+                columns.append(",");
+            }
+        }
+        return columns.toString();
+    }
 }
