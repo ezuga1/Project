@@ -10,18 +10,24 @@ public interface ItemsDao extends Dao<Items> {
     /**
      * Returns all items that contains given text.
      *
-     * @param text search string for quotes
-     * @return list of quotes
+     * @param text search string for items
+     * @return list of items
      */
     List<Items> searchByText(String text) throws MarketException;
 
     /**
-     * Returns all quotes that contains given text.
+     * Returns all items that contains given text.
      *
      * @param category search string for items
-     * @return list of quotes
+     * @return list of items
      */
     List<Items> searchByCategory(Category category) throws MarketException;
 
+    /**
+     * Return all items for wanted price.
+     * @param price search string for items
+     * @return list of items
+     *
+     */
     List<Items> searchByPrice(String price) throws MarketException;
 }
