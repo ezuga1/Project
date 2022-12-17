@@ -22,8 +22,9 @@ public class CategoryDaoSQLImpl extends AbstractDao<Category> implements Categor
     public Category row2object(ResultSet rs) throws MarketException {
         try {
             Category cat = new Category();
-            cat.setId(rs.getInt("id"));
+            cat.setId(rs.getInt("category_id"));
             cat.setName(rs.getString("name"));
+            cat.setName(rs.getString("status"));
             return cat;
         } catch (SQLException e) {
             throw new MarketException(e.getMessage(), e);
@@ -33,8 +34,9 @@ public class CategoryDaoSQLImpl extends AbstractDao<Category> implements Categor
     @Override
     public Map<String, Object> object2row(Category object) {
         Map<String, Object> row = new TreeMap<String, Object>();
-        row.put("id", object.getId());
+        row.put("category_id", object.getId());
         row.put("name", object.getName());
+        row.put("status", object.getStatus());
         return row;
     }
 }
