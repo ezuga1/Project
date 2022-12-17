@@ -14,7 +14,7 @@ import java.util.TreeMap;
  */
 
 public class CategoryDaoSQLImpl extends AbstractDao<Category> implements CategoryDao {
-    public CategoryDaoSQLImpl(String tableName) {
+    public CategoryDaoSQLImpl() {
         super("categories");
     }
 
