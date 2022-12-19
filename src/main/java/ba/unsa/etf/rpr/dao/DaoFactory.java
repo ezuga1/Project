@@ -21,4 +21,8 @@ public class DaoFactory {
         return categoryDao;
     }
 
+    public static ItemsDao itemsDao(){
+        return itemsDao;
+    }
+
 }
