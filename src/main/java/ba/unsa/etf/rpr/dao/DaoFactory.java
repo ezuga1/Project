@@ -6,4 +6,5 @@ package ba.unsa.etf.rpr.dao;
  * @author Ernad Zuga
  */
 public class DaoFactory {
+    private static final CategoryDao categoryDao = new CategoryDaoSQLImpl();
 }
