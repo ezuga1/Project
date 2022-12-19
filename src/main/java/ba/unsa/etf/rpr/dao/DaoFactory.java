@@ -1,5 +1,8 @@
 package ba.unsa.etf.rpr.dao;
 
+
+
+
 /**
  * Factory method for singleton implementation of DAOs
  *
@@ -8,4 +11,5 @@ package ba.unsa.etf.rpr.dao;
 public class DaoFactory {
     private static final CategoryDao categoryDao = new CategoryDaoSQLImpl();
     private static final ItemsDao itemsDao = new ItemsDaoSQLImpl();
+    private static final UserDao userDao = new UserDaoSQLImpl();
 }
