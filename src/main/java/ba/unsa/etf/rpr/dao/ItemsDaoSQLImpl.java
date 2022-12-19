@@ -7,6 +7,8 @@ import ba.unsa.etf.rpr.exceptions.MarketException;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -63,6 +65,18 @@ public class ItemsDaoSQLImpl extends AbstractDao<Items> implements ItemsDao {
     @Override
     public List<Items> searchByText(String description) throws MarketException {
         String query = "SELECT * FROM items WHERE description LIKE concat ('%', ?, '%')";
+        try {
+            PreparedStatement stmt = getConnection().prepareStatement(query);
+            stmt.setString(1, description);
+            ResultSet rs = stmt.executeQuery();
+            ArrayList<Items> itemsLista = new ArrayList<>();
+            while (rs.next()){
+                itemsLista.add(row2object(rs));
+            }
+            return itemsLista;
+        } catch (SQLException e){
+            throw new MarketException(e.getMessage(), e);
+        }
     }
 
     @Override
