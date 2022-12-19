@@ -25,4 +25,8 @@ public class DaoFactory {
         return itemsDao;
     }
 
+    public static UserDao userDao(){
+        return userDao;
+    }
+
 }
