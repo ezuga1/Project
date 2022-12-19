@@ -87,7 +87,19 @@ public class ItemsDaoSQLImpl extends AbstractDao<Items> implements ItemsDao {
      */
     @Override
     public List<Items> searchByCategory(Category category) throws MarketException {
-        return null;
+        String query = "SELECT * FROM items WHERE category_id = ?";
+        try {
+            PreparedStatement stmt = getConnection().prepareStatement(query);
+            stmt.setInt(1, category.getId());
+            ResultSet rs = stmt.executeQuery();
+            ArrayList<Items> itemsLista = new ArrayList<>();
+            while (rs.next()){
+                itemsLista.add(row2object(rs));
+            }
+            return itemsLista;
+        }catch (SQLException e){
+            throw new MarketException(e.getMessage(), e);
+        }
     }
 
     @Override
