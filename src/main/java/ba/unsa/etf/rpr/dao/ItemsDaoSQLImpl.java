@@ -79,6 +79,12 @@ public class ItemsDaoSQLImpl extends AbstractDao<Items> implements ItemsDao {
         }
     }
 
+    /**
+     *
+     * @param category search string for items
+     * @return list of items
+     * @throws MarketException
+     */
     @Override
     public List<Items> searchByCategory(Category category) throws MarketException {
         return null;
