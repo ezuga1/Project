@@ -12,4 +12,8 @@ public class DaoFactory {
     private static final CategoryDao categoryDao = new CategoryDaoSQLImpl();
     private static final ItemsDao itemsDao = new ItemsDaoSQLImpl();
     private static final UserDao userDao = new UserDaoSQLImpl();
+
+    private DaoFactory(){
+
+    }
 }
