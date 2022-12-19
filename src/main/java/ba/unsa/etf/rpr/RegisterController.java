@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -17,5 +18,8 @@ public class RegisterController {
     @FXML
     private void handleSubmit() {
         String name = nameField.getText();
+    }
+
+    public void register(ActionEvent actionEvent) {
     }
 }
