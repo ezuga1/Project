@@ -104,6 +104,18 @@ public class ItemsDaoSQLImpl extends AbstractDao<Items> implements ItemsDao {
 
     @Override
     public List<Items> searchByPrice(String price) throws MarketException {
-        return null;
+        String query = "SELECT * FROM items WHERE price = ?";
+        try {
+            PreparedStatement stmt = getConnection().prepareStatement(query);
+            stmt.setString(1, price);
+            ResultSet rs = stmt.executeQuery();
+            ArrayList<Items> itemsLista = new ArrayList<>();
+            while(rs.next()){
+                itemsLista.add(row2object(rs));
+            }
+            return itemsLista;
+        }catch (SQLException e){
+            throw new MarketException(e.getMessage(),e);
+        }
     }
 }
