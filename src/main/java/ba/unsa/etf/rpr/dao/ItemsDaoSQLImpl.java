@@ -55,14 +55,14 @@ public class ItemsDaoSQLImpl extends AbstractDao<Items> implements ItemsDao {
         return item;
     }
 
+    /**
+     * @param description search string for items
+     * @return list of items
+     * @throws MarketException
+     */
     @Override
-    public Items add(Items item) throws MarketException {
-        return null;
-    }
-
-    @Override
-    public List<Items> searchByText(String text) throws MarketException {
-        return null;
+    public List<Items> searchByText(String description) throws MarketException {
+        String query = "SELECT * FROM items WHERE description LIKE concat ('%', ?, '%')";
     }
 
     @Override
