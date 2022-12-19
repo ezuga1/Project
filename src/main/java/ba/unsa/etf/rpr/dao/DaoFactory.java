@@ -16,4 +16,8 @@ public class DaoFactory {
     private DaoFactory(){
 
     }
+
+    public static CategoryDao categoryDao(){
+        return categoryDao;
+    }
 }
