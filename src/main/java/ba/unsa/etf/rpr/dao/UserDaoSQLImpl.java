@@ -14,7 +14,7 @@ import java.util.TreeMap;
 public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao{
     public UserDaoSQLImpl() {
 
-        super("users");
+        super("User");
     }
 
     @Override
@@ -44,7 +44,7 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao{
 
 
     public User getByUsername(User username) throws MarketException {
-        String query = "SELECT * FROM users WHERE username = ?";
+        String query = "SELECT * FROM User WHERE username = ?";
         try {
             PreparedStatement stmt = getConnection().prepareStatement(query);
             stmt.setInt(1, username.getId());
@@ -59,7 +59,7 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao{
         }
     }
     public User getByEmailAddress(User email) throws MarketException {
-        String query = "SELECT * FROM users WHERE email_address = ?";
+        String query = "SELECT * FROM User WHERE email_address = ?";
         try{
             PreparedStatement stmt = getConnection().prepareStatement(query);
             stmt.setInt(1, email.getId());
