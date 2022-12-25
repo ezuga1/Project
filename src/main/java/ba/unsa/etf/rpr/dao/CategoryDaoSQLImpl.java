@@ -15,7 +15,7 @@ import java.util.TreeMap;
 
 public class CategoryDaoSQLImpl extends AbstractDao<Category> implements CategoryDao {
     public CategoryDaoSQLImpl() {
-        super("categories");
+        super("category");
     }
 
     @Override
