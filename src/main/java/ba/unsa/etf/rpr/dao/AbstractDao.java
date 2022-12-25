@@ -28,6 +28,11 @@ public abstract class AbstractDao <T extends Idable> implements Dao<T>{
     public Connection getConnection(){
         return this.connection;
     }
+
+    public void setConnection(Connection connection) {
+        this.connection = connection;
+    }
+
     public abstract T row2object(ResultSet rs) throws MarketException;
     public abstract Map<String, Object> object2row(T object);
 
