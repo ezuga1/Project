@@ -20,7 +20,7 @@ import java.util.TreeMap;
 
 public class ItemsDaoSQLImpl extends AbstractDao<Items> implements ItemsDao {
     public ItemsDaoSQLImpl() {
-        super("items");
+        super("Items");
     }
 
     @Override
@@ -64,7 +64,7 @@ public class ItemsDaoSQLImpl extends AbstractDao<Items> implements ItemsDao {
      */
     @Override
     public List<Items> searchByText(String description) throws MarketException {
-        String query = "SELECT * FROM items WHERE description LIKE concat ('%', ?, '%')";
+        String query = "SELECT * FROM Items WHERE description LIKE concat ('%', ?, '%')";
         try {
             PreparedStatement stmt = getConnection().prepareStatement(query);
             stmt.setString(1, description);
@@ -87,7 +87,7 @@ public class ItemsDaoSQLImpl extends AbstractDao<Items> implements ItemsDao {
      */
     @Override
     public List<Items> searchByCategory(Category category) throws MarketException {
-        String query = "SELECT * FROM items WHERE category_id = ?";
+        String query = "SELECT * FROM Items WHERE category_id = ?";
         try {
             PreparedStatement stmt = getConnection().prepareStatement(query);
             stmt.setInt(1, category.getId());
@@ -104,7 +104,7 @@ public class ItemsDaoSQLImpl extends AbstractDao<Items> implements ItemsDao {
 
     @Override
     public List<Items> searchByPrice(String price) throws MarketException {
-        String query = "SELECT * FROM items WHERE price = ?";
+        String query = "SELECT * FROM Items WHERE price = ?";
         try {
             PreparedStatement stmt = getConnection().prepareStatement(query);
             stmt.setString(1, price);
