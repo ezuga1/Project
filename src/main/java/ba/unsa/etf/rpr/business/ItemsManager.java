@@ -21,4 +21,7 @@ public class ItemsManager {
 public void delete (int id) throws MarketException {
         DaoFactory.itemsDao().delete(id);
 }
+public Items getById(int itemsId) throws MarketException {
+        return DaoFactory.itemsDao().getById(itemsId);
+}
 }
