@@ -24,7 +24,7 @@ public void delete (int id) throws MarketException {
 public Items getById(int itemsId) throws MarketException {
         return DaoFactory.itemsDao().getById(itemsId);
 }
-public void update(Items item){
-
+public void update(Items item) throws MarketException {
+DaoFactory.itemsDao().update(item);
 }
 }
