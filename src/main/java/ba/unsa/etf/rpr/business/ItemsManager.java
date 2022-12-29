@@ -1,4 +1,5 @@
 package ba.unsa.etf.rpr.business;
+import ba.unsa.etf.rpr.dao.Dao;
 import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Items;
 import ba.unsa.etf.rpr.exceptions.MarketException;
@@ -29,5 +30,9 @@ DaoFactory.itemsDao().update(item);
 }
 public Items add(Items item) throws MarketException {
         return DaoFactory.itemsDao().add(item);
+}
+public Items randomItem() throws MarketException {
+        return DaoFactory.itemsDao().randomItem();
+
 }
 }
