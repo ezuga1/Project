@@ -6,6 +6,8 @@ import ba.unsa.etf.rpr.domain.Category;
 import ba.unsa.etf.rpr.domain.Items;
 import ba.unsa.etf.rpr.exceptions.MarketException;
 
+import java.util.List;
+
 /**
  * Business Logic Layer for management of Categories
  *
@@ -52,5 +54,9 @@ public class CategoryManager {
     public Category update(Category cat) throws MarketException {
             validateCategoryName(cat.getName());
             return DaoFactory.categoryDao().update(cat);
+    }
+
+    public List<Category> getAll() throws MarketException {
+        return DaoFactory.categoryDao().getAll();
     }
 }
