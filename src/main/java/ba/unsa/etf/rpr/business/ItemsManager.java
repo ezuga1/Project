@@ -27,4 +27,7 @@ public Items getById(int itemsId) throws MarketException {
 public void update(Items item) throws MarketException {
 DaoFactory.itemsDao().update(item);
 }
+public Items add(Items item) throws MarketException {
+        return DaoFactory.itemsDao().add(item);
+}
 }
