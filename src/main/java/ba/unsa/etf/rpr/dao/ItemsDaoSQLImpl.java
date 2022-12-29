@@ -121,6 +121,6 @@ public class ItemsDaoSQLImpl extends AbstractDao<Items> implements ItemsDao {
 
     @Override
     public Items randomItem() throws MarketException{
-
+        return executeQueryUnique("SELECT * FROM Items ORDER BY RAND() LIMIT 1", null);
     }
 }
