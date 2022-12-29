@@ -30,4 +30,12 @@ public interface ItemsDao extends Dao<Items> {
      *
      */
     List<Items> searchByPrice(String price) throws MarketException;
+
+    /**
+     * Return random item from database
+     *
+     * @return random item
+     * @throws MarketException
+     */
+    Items randomItem() throws MarketException;;
 }
