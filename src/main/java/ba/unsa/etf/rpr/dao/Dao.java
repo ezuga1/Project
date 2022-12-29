@@ -29,6 +29,13 @@ public interface Dao <T>{
      * @param item - bean to be uploaded. id must be populated
      * @return updated version of bean
      */
+    T update(T item) throws MarketException;
+
+    /**
+     * Hard delete of item from database with given id
+     * @param id - primary key of entity
+     *
+     */
     void delete(int id) throws MarketException;
 
     /**
