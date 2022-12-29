@@ -118,4 +118,9 @@ public class ItemsDaoSQLImpl extends AbstractDao<Items> implements ItemsDao {
             throw new MarketException(e.getMessage(),e);
         }
     }
+
+    @Override
+    public Items randomItem() throws MarketException{
+
+    }
 }
