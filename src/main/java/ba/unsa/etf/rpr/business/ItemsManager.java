@@ -12,4 +12,8 @@ import java.util.List;
  */
 
 public class ItemsManager {
+    public List<Items> getAll() throws MarketException {
+        return DaoFactory.itemsDao().getAll();
+    }
+
 }
