@@ -18,5 +18,7 @@ public class ItemsManager {
  public List<Items> searchItems(String price) throws MarketException {
         return DaoFactory.itemsDao().searchByPrice(price);
  }
-
+public void delete (int id) throws MarketException {
+        DaoFactory.itemsDao().delete(id);
+}
 }
