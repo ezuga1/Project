@@ -15,5 +15,8 @@ public class ItemsManager {
     public List<Items> getAll() throws MarketException {
         return DaoFactory.itemsDao().getAll();
     }
+ public List<Items> searchItems(String price) throws MarketException {
+        return DaoFactory.itemsDao().searchByPrice(price);
+ }
 
 }
