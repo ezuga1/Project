@@ -34,4 +34,14 @@ public class CategoryManager {
             throw e;
         }
     }
+
+    public void delete(int categoryId) throws MarketException {
+        try{
+            DaoFactory.categoryDao().delete(categoryId);
+        } catch (MarketException e) {
+            if(e.getMessage().contains("FOREIGN KEY")){
+                throw new MarketException("Cannot delete category which is related to items. First delete related items before deleting category");
+            }
+            throw e;
+    }
 }
