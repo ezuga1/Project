@@ -37,7 +37,7 @@
         </GridPane.margin>
     </Button>
    <Label prefHeight="34.0" prefWidth="321.0" text="Please register if you do not have account" GridPane.columnSpan="2" GridPane.rowIndex="5" />
-   <Button mnemonicParsing="false" text="Register" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+   <Button mnemonicParsing="false" onAction="#register" text="Register" GridPane.columnIndex="1" GridPane.rowIndex="6" />
    <rowConstraints>
       <RowConstraints />
       <RowConstraints />
