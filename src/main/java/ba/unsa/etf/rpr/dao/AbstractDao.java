@@ -146,7 +146,6 @@ public abstract class AbstractDao <T extends Idable> implements Dao<T>{
      * @param query - SQL query
      * @param params - params for query
      * @return List of objects from database
-     * @throws MakretException in case of error with db
      *
      */
 
