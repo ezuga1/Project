@@ -5,7 +5,6 @@ import java.util.Objects;
 public class User implements Idable{
     int userID;
     String username;
-    String surname;
     String emailAddress;
 
     public int getId(){
@@ -23,13 +22,9 @@ public class User implements Idable{
         this.username = username;
     }
 
-    public String getSurname() {
-        return surname;
-    }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
+
+
 
     public String getEmailAddress() {
         return emailAddress;
@@ -44,7 +39,6 @@ public class User implements Idable{
         return "User{" +
                 "userID=" + userID +
                 ", username='" + username + '\'' +
-                ", surname='" + surname + '\'' +
                 ", emailAddress='" + emailAddress + '\'' +
                 '}';
     }
@@ -54,11 +48,11 @@ public class User implements Idable{
         if (this == o) return true;
         if (!(o instanceof User)) return false;
         User user = (User) o;
-        return getId() == user.getId() && getUsername().equals(user.getUsername()) && getSurname().equals(user.getSurname()) && getEmailAddress().equals(user.getEmailAddress());
+        return getId() == user.getId() && getUsername().equals(user.getUsername()) && getEmailAddress().equals(user.getEmailAddress());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getUsername(), getSurname(), getEmailAddress());
+        return Objects.hash(getId(), getUsername(), getEmailAddress());
     }
 }
