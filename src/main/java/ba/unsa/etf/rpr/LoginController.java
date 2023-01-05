@@ -16,7 +16,7 @@ public class LoginController {
     public void login(ActionEvent actionEvent) {
     }
     public void register(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("/register.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/fxml/register.fxml"));
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         scene=new Scene(root);
         stage.setScene(scene);
