@@ -31,7 +31,7 @@ public class RegisterController {
     @FXML
     private Button registerButton;
 
-
+   @FXML
     public void register(ActionEvent actionEvent){
 
         Window owner = registerButton.getScene().getWindow();
@@ -53,6 +53,8 @@ public class RegisterController {
             showAlert(Alert.AlertType.ERROR, owner, "Ooops, Registration error!","Please enter your password");
             return;
         }
+
+        showAlert(Alert.AlertType.CONFIRMATION, owner, "Registration successfully!", userNameField.getText() + " welcome to our shop");
     }
 
 
@@ -64,6 +66,8 @@ public class RegisterController {
         alert.initOwner(owner);
         alert.show();
     }
+
+
 
 
 }
