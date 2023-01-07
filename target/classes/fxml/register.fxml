@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
@@ -35,10 +37,19 @@
   <!-- Add Password Field -->
   <PasswordField fx:id="passwordField" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="3" />
   <!-- Add Submit Button -->
-  <Button fx:id="registerButton" defaultButton="true" onAction="#register" prefHeight="40" prefWidth="100" text="Register" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.rowSpan="1">
+  <Button fx:id="registerButton" defaultButton="true" onAction="#register" prefHeight="40" prefWidth="100" text="Register" underline="true" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.rowSpan="1">
     <GridPane.margin>
       <Insets bottom="20" left="0" right="0" top="20" />
     </GridPane.margin>
+      <font>
+         <Font size="14.0" />
+      </font>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+      <effect>
+         <InnerShadow />
+      </effect>
   </Button>
    <rowConstraints>
       <RowConstraints />
