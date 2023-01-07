@@ -2,10 +2,7 @@ package ba.unsa.etf.rpr.dao;
 
 import ba.unsa.etf.rpr.domain.User;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Properties;
 
 
@@ -35,6 +32,26 @@ public class JDBCDao {
         catch (SQLException e){
             e.printStackTrace();
         }
+    }
+
+    public boolean validate(String username, String password){
+        //Step 1: Establishing a Connection, auto close the connection.
+
+        try (Connection conn = DriverManager.getConnection(url, usrnm, pw);
+            //Step 2: Create a statement using connection object
+             PreparedStatement preparedStatement = conn.prepareStatement(insertQuery)){
+            preparedStatement.setString(1,username);
+            preparedStatement.setString(2,password);
+
+            System.out.println(preparedStatement);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if(resultSet.next())
+                return true;
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return false;
     }
 
 
