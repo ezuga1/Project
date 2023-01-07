@@ -10,6 +10,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Window;
 import ba.unsa.etf.rpr.dao.JDBCDao;
 
+import java.sql.*;
+
 public class RegisterController {
     @FXML
     private TextField userNameField;
@@ -45,13 +47,38 @@ public class RegisterController {
             showAlert(Alert.AlertType.ERROR, owner, "Ooops, Registration error!","Please enter your password");
             return;
         }
-        JDBCDao jdbcDao = new JDBCDao();
-        jdbcDao.insertUser(userNameField.getText(), emailField.getText(), passwordField.getText());
+
+       PreparedStatement psCheckUserExists = null;
+       ResultSet resultSet = null;
+       Connection conn = null;
+       try {
+           conn = DriverManager.getConnection("jdbc:mysql://sql.freedb.tech:3306/freedb_Tech_Market", "freedb_ezuga1", "yCjgsz%m#TSQ*3q");
+           psCheckUserExists = conn.prepareStatement("SELECT * FROM User WHERE username = ?");
+           psCheckUserExists.setString(1,userNameField.getText());
+           resultSet = psCheckUserExists.executeQuery();
+
+           if(resultSet.isBeforeFirst()){
+               System.out.println("User already exists");
+               Alert alert = new Alert(Alert.AlertType.ERROR);
+               alert.setContentText("You cannot use this username, it already exists");
+               alert.show();
+           }
+           else{
+               JDBCDao jdbcDao = new JDBCDao();
+
+               jdbcDao.insertUser(userNameField.getText(), emailField.getText(), passwordField.getText());
+               showAlert(Alert.AlertType.CONFIRMATION, owner, "Registration successfully!", userNameField.getText() + " welcome to our shop");
+           }
+       }
+       catch (SQLException e) {
+           throw new RuntimeException(e);
+       }
 
 
 
 
-        showAlert(Alert.AlertType.CONFIRMATION, owner, "Registration successfully!", userNameField.getText() + " welcome to our shop");
+
+
     }
 
 
