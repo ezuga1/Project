@@ -14,10 +14,22 @@ import java.util.TreeMap;
  */
 
 public class CategoryDaoSQLImpl extends AbstractDao<Category> implements CategoryDao {
+    private static CategoryDaoSQLImpl instance = null;
     public CategoryDaoSQLImpl() {
         super("category");
     }
 
+
+    public static CategoryDaoSQLImpl getInstance(){
+        if(instance == null)
+            instance = new CategoryDaoSQLImpl();
+        return instance;
+    }
+
+    public static void removeInstance(){
+        if(instance != null)
+                instance = null;
+    }
     @Override
     public Category row2object(ResultSet rs) throws MarketException {
         try {
