@@ -19,8 +19,22 @@ import java.util.TreeMap;
  */
 
 public class ItemsDaoSQLImpl extends AbstractDao<Items> implements ItemsDao {
-    public ItemsDaoSQLImpl() {
+
+    private static ItemsDaoSQLImpl instance = null;
+
+    private ItemsDaoSQLImpl() {
         super("Items");
+    }
+
+    public static ItemsDaoSQLImpl getInstance(){
+        if(instance == null)
+            instance = new ItemsDaoSQLImpl();
+        return instance;
+    }
+
+    public static void removeInstance(){
+        if(instance != null)
+            instance = null;
     }
 
     @Override
@@ -64,19 +78,7 @@ public class ItemsDaoSQLImpl extends AbstractDao<Items> implements ItemsDao {
      */
     @Override
     public List<Items> searchByText(String description) throws MarketException {
-        String query = "SELECT * FROM Items WHERE description LIKE concat ('%', ?, '%')";
-        try {
-            PreparedStatement stmt = getConnection().prepareStatement(query);
-            stmt.setString(1, description);
-            ResultSet rs = stmt.executeQuery();
-            ArrayList<Items> itemsLista = new ArrayList<>();
-            while (rs.next()){
-                itemsLista.add(row2object(rs));
-            }
-            return itemsLista;
-        } catch (SQLException e){
-            throw new MarketException(e.getMessage(), e);
-        }
+       return executeQuery("SELECT * FROM Items WHERE description LIKE concat('%', ?, '%')", new Object[]{description});
     }
 
     /**
@@ -87,36 +89,12 @@ public class ItemsDaoSQLImpl extends AbstractDao<Items> implements ItemsDao {
      */
     @Override
     public List<Items> searchByCategory(Category category) throws MarketException {
-        String query = "SELECT * FROM Items WHERE category_id = ?";
-        try {
-            PreparedStatement stmt = getConnection().prepareStatement(query);
-            stmt.setInt(1, category.getId());
-            ResultSet rs = stmt.executeQuery();
-            ArrayList<Items> itemsLista = new ArrayList<>();
-            while (rs.next()){
-                itemsLista.add(row2object(rs));
-            }
-            return itemsLista;
-        }catch (SQLException e){
-            throw new MarketException(e.getMessage(), e);
-        }
+        return executeQuery("SELECT * FROM Items WHERE category_id = ?", new Object[]{category.getId()});
     }
 
     @Override
     public List<Items> searchByPrice(String price) throws MarketException {
-        String query = "SELECT * FROM Items WHERE price = ?";
-        try {
-            PreparedStatement stmt = getConnection().prepareStatement(query);
-            stmt.setString(1, price);
-            ResultSet rs = stmt.executeQuery();
-            ArrayList<Items> itemsLista = new ArrayList<>();
-            while(rs.next()){
-                itemsLista.add(row2object(rs));
-            }
-            return itemsLista;
-        }catch (SQLException e){
-            throw new MarketException(e.getMessage(),e);
-        }
+        return executeQuery("SELECT * FROM Items WHERE price = ?", new Object[]{price});
     }
 
     @Override
