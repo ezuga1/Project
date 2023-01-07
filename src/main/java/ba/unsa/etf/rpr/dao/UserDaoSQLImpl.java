@@ -12,9 +12,22 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao{
+
+    private static UserDaoSQLImpl instance = null;
     public UserDaoSQLImpl() {
 
         super("User");
+    }
+
+    public static UserDaoSQLImpl getInstance(){
+        if(instance == null)
+            instance = new UserDaoSQLImpl();
+        return instance;
+    }
+
+    public static void removeInstance(){
+        if(instance != null)
+            instance = null;
     }
 
     @Override
@@ -42,33 +55,9 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao{
 
 
     public User getByUsername(User username) throws MarketException {
-        String query = "SELECT * FROM User WHERE username = ?";
-        try {
-            PreparedStatement stmt = getConnection().prepareStatement(query);
-            stmt.setInt(1, username.getId());
-            ResultSet rs = stmt.executeQuery();
-            User user = new User();
-            if(rs.next())
-                user = row2object(rs);
-            return user;
-        }
-        catch (SQLException e){
-            throw new MarketException(e.getMessage(), e);
-        }
+        return executeQueryUnique("SELECT * FROM Users WHERE username = ?", new Object[]{username});
     }
     public User getByEmailAddress(User email) throws MarketException {
-        String query = "SELECT * FROM User WHERE email_address = ?";
-        try{
-            PreparedStatement stmt = getConnection().prepareStatement(query);
-            stmt.setInt(1, email.getId());
-            ResultSet rs = stmt.executeQuery();
-            User user = new User();
-            if(rs.next())
-                user = row2object(rs);
-            return user;
-        }
-        catch (SQLException e){
-            throw new MarketException(e.getMessage(), e);
-        }
+       return executeQueryUnique("SELECT * FROM Users where emai_address = ?", new Object[]{email});
     }
 }
