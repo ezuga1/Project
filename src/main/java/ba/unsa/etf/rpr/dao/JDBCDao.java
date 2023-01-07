@@ -11,6 +11,8 @@ public class JDBCDao {
     private static final String url = "jdbc:mysql://sql.freedb.tech:3306/freedb_Tech_Market";
     private static final String usrnm = "freedb_ezuga1";
     private static final String pw = "yCjgsz%m#TSQ*3q";
+
+    private static final String selectQuery = "SELECT * FROM User WHERE username = ? and password = ?";
     private static final String insertQuery = "INSERT INTO User (username, email_address, password) VALUES (?, ?, ?)";
 
     //Step 1: Establishing a Connection and try-catch resource statement will auto close the connection.
@@ -39,7 +41,7 @@ public class JDBCDao {
 
         try (Connection conn = DriverManager.getConnection(url, usrnm, pw);
             //Step 2: Create a statement using connection object
-             PreparedStatement preparedStatement = conn.prepareStatement(insertQuery)){
+             PreparedStatement preparedStatement = conn.prepareStatement(selectQuery)){
             preparedStatement.setString(1,username);
             preparedStatement.setString(2,password);
 

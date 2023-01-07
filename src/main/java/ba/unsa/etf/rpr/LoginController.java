@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr;
 
+import ba.unsa.etf.rpr.dao.JDBCDao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 import java.awt.*;
 import java.io.IOException;
-
+import java.util.*;
 public class LoginController {
     private Parent root;
     private Stage stage;
@@ -31,6 +32,7 @@ public class LoginController {
 
     public void login(ActionEvent actionEvent) {
         Window owner = loginButton.getScene().getWindow();
+
         System.out.println(userNameField.getText());
         System.out.println(passwordField.getText());
 
@@ -42,10 +44,23 @@ public class LoginController {
             showAlert(Alert.AlertType.ERROR, owner, "Ooops, login error", "Please enter your password");
             return;
         }
+        JDBCDao jdbcDao = new JDBCDao();
+        boolean valid = jdbcDao.validate(userNameField.getText(), passwordField.getText());
 
+        if(valid){
+            infoBox("Login successful!", null, "Failed");
+        }else{
+            infoBox("Please enter correct username and password or create account (Click Register button)", null, "Failed");
+        }
 
     }
-
+    public static void infoBox(String message, String text, String title){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setContentText(message);
+        alert.setTitle(title);
+        alert.setHeaderText(text);
+        alert.show();
+    }
     public static void showAlert(Alert.AlertType alertType, Window owner, String s, String message){
         Alert alert = new Alert(alertType);
         alert.setTitle(s);
