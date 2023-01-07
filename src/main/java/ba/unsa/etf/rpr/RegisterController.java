@@ -1,22 +1,14 @@
 package ba.unsa.etf.rpr;
 
+import ba.unsa.etf.rpr.dao.JDBCDao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import javafx.stage.Window;
-
-import java.io.IOException;
-
-
-
+import ba.unsa.etf.rpr.dao.JDBCDao;
 
 public class RegisterController {
     @FXML
@@ -53,9 +45,15 @@ public class RegisterController {
             showAlert(Alert.AlertType.ERROR, owner, "Ooops, Registration error!","Please enter your password");
             return;
         }
+        JDBCDao jdbcDao = new JDBCDao();
+        jdbcDao.insertUser(userNameField.getText(), emailField.getText(), passwordField.getText());
+
+
+
 
         showAlert(Alert.AlertType.CONFIRMATION, owner, "Registration successfully!", userNameField.getText() + " welcome to our shop");
     }
+
 
 
     private void showAlert(Alert.AlertType alertType, Window owner, String s, String message) {

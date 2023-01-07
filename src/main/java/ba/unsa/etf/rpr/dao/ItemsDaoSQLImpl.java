@@ -22,7 +22,7 @@ public class ItemsDaoSQLImpl extends AbstractDao<Items> implements ItemsDao {
 
     private static ItemsDaoSQLImpl instance = null;
 
-    private ItemsDaoSQLImpl() {
+    public ItemsDaoSQLImpl() {
         super("Items");
     }
 
