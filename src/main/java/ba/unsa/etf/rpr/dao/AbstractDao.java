@@ -46,9 +46,7 @@ public abstract class AbstractDao <T extends Idable> implements Dao<T>{
         return AbstractDao.connection;
     }
 
-    public void setConnection(Connection connection) {
-        this.connection = connection;
-    }
+
 
     public abstract T row2object(ResultSet rs) throws MarketException;
     public abstract Map<String, Object> object2row(T object);
@@ -56,23 +54,7 @@ public abstract class AbstractDao <T extends Idable> implements Dao<T>{
 
 
     public T getById(int id) throws MarketException{
-        String query = "SELECT * FROM "+this.tableName+" WHERE id = ?";
-        try {
-            PreparedStatement stmt = this.connection.prepareStatement(query);
-            stmt.setInt(1,id);
-            ResultSet rs = stmt.executeQuery();
-            if(rs.next()){ // result set is iterator.
-                T result = row2object(rs);
-                rs.close();
-                return result;
-            }
-            else{
-                throw new MarketException("Object not found");
-            }
-        }
-        catch (SQLException e){
-            throw new MarketException(e.getMessage(), e);
-        }
+      return executeQueryUnique("SELECT * FROM " + this.tableName + " WHERE id = ?", new Object[]{id});
     }
     public List<T> getAll() throws MarketException{
         String query = "SELECT * FROM " + tableName;
