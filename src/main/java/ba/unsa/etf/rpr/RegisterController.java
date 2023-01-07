@@ -3,16 +3,27 @@ package ba.unsa.etf.rpr;
 import ba.unsa.etf.rpr.dao.JDBCDao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import javafx.stage.Window;
 import ba.unsa.etf.rpr.dao.JDBCDao;
 
+import java.io.IOException;
 import java.sql.*;
 
 public class RegisterController {
+
+    private Stage stage;
+    private Parent root;
+    private Scene scene;
+
     @FXML
     private TextField userNameField;
 
@@ -26,7 +37,7 @@ public class RegisterController {
     private Button registerButton;
 
    @FXML
-    public void register(ActionEvent actionEvent){
+    public void register(ActionEvent actionEvent) throws IOException {
 
         Window owner = registerButton.getScene().getWindow();
 
@@ -68,6 +79,12 @@ public class RegisterController {
 
                jdbcDao.insertUser(userNameField.getText(), emailField.getText(), passwordField.getText());
                showAlert(Alert.AlertType.CONFIRMATION, owner, "Registration successfully!", userNameField.getText() + " welcome to our shop");
+
+               root = FXMLLoader.load(getClass().getResource("/fxml/market.fxml"));
+               stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+               scene=new Scene(root);
+               stage.setScene(scene);
+               stage.show();
            }
        }
        catch (SQLException e) {

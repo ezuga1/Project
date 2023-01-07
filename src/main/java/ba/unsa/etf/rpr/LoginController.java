@@ -50,7 +50,11 @@ public class LoginController {
         if(valid){
             infoBox("Login successful!", null, "Failed");
 
-
+            root = FXMLLoader.load(getClass().getResource("/fxml/market.fxml"));
+            stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+            scene=new Scene(root);
+            stage.setScene(scene);
+            stage.show();
 
         }else{
             infoBox("Please enter correct username and password or create account (Click Register button)", null, "Failed");
