@@ -29,8 +29,8 @@ public class LoginController {
 
     @FXML
     private Button loginButton;
-
-    public void login(ActionEvent actionEvent) {
+    @FXML
+    public void login(ActionEvent actionEvent) throws IOException {
         Window owner = loginButton.getScene().getWindow();
 
         System.out.println(userNameField.getText());
@@ -49,9 +49,14 @@ public class LoginController {
 
         if(valid){
             infoBox("Login successful!", null, "Failed");
+
+
+
         }else{
             infoBox("Please enter correct username and password or create account (Click Register button)", null, "Failed");
         }
+
+
 
     }
     public static void infoBox(String message, String text, String title){
