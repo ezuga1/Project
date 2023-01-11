@@ -70,7 +70,7 @@
   <bottom>
     <HBox BorderPane.alignment="CENTER">
       <children>
-        <Label text="Copyright © 2022 Web Shop"/>
+        <Label text=""/>
       </children>
     </HBox>
   </bottom>
