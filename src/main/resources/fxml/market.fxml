@@ -1,15 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.2-ea">
-  <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-  </columnConstraints>
-  <rowConstraints>
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-  </rowConstraints>
-</GridPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml" fx:controller="ba.unsa.etf.rpr.MarketController">
+  <top>
+    <VBox BorderPane.alignment="CENTER">
+      <children>
+        <HBox>
+          <children>
+            <Button mnemonicParsing="false" onAction="#onClickHome" text="Home" BorderPane.alignment="CENTER_LEFT"/>
+            <Button mnemonicParsing="false" onAction="#onClickShop" text="Shop" BorderPane.alignment="CENTER_LEFT" />
+            <Button mnemonicParsing="false" onAction="#onClickContact" text="Contact" BorderPane.alignment="CENTER_RIGHT" />
+            <Button mnemonicParsing="false" onAction="#onClickLogin" text="Login" BorderPane.alignment="CENTER_RIGHT" />
+          </children>
+          <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+          </padding>
+        </HBox>
+      </children>
+      <BorderPane.margin>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+      </BorderPane.margin>
+    </VBox>
+  </top>
+  <center>
+    <VBox BorderPane.alignment="CENTER">
+      <children>
+        <ScrollPane>
+          <content>
+            <VBox>
+              <children>
+                <HBox>
+                  <children>
+                    <ImageView fx:id="productImage1" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                    <Label fx:id="productName1" text="Product Name" wrapText="true" />
+                    <Label fx:id="productPrice1" text="" />
+                    <Button mnemonicParsing="false" onAction="#onAddToCart1" text="Add to Cart" />
+                  </children>
+                </HBox>
+                <HBox>
+                  <children>
+                    <ImageView fx:id="productImage2" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                    <Label fx:id="productName2" text="Product Name" wrapText="true" />
+                    <Label fx:id="productPrice2" text="" />
+                        <Button mnemonicParsing="" onAction="#onAddToCart2" text="Add to Cart" />
+                  </children>
+                </HBox>
+                <HBox>
+                  <children>
+                    <ImageView fx:id="productImage3" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                    <Label fx:id="productName3" text="Product Name" wrapText="true" />
+                    <Label fx:id="productPrice3" text="" />
+                    <Button mnemonicParsing="false" onAction="#onAddToCart3" text="Add to Cart" />
+                  </children>
+                </HBox>
+              </children>
+            </VBox>
+          </content>
+        </ScrollPane>
+      </children>
+      <BorderPane.margin>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+      </BorderPane.margin>
+    </VBox>
+  </center>
+  <bottom>
+    <HBox BorderPane.alignment="CENTER">
+      <children>
+        <Label text="Copyright © 2022 Web Shop"/>
+      </children>
+    </HBox>
+  </bottom>
+</BorderPane>
