@@ -70,7 +70,7 @@
                       <ImageView fx:id="productImage3" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                       <Label fx:id="productName3" text="Product Name" wrapText="true" />
                       <Label fx:id="productPrice3" text="" />
-
+                      <Button mnemonicParsing="false" onAction="#onAddToCart1" text="Add to Cart" />
                     </children>
                   </HBox>
                 </children>
