@@ -17,12 +17,12 @@ public interface ItemsDao extends Dao<Items> {
     List<Items> searchByCategory(Category category) throws MarketException;
 
     /**
-     * Return all items for wanted price.
-     * @param price search string for items
-     * @return list of items
+     * Return all items in range for wanted price.
+     * @params price1 and price1
+     * @return list of items between given prices
      *
      */
-    List<Items> searchByPrice(String price) throws MarketException;
+    List<Items> searchByPrice(String price1, String price2) throws MarketException;
 
     /**
      * Return random item from database
