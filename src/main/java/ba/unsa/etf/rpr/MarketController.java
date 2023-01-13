@@ -24,4 +24,10 @@ public class MarketController {
 
     public void onAddToCart3(ActionEvent actionEvent) {
     }
+
+    public void onSearchByCategory(ActionEvent actionEvent) {
+    }
+
+    public void onSearchByPrice(ActionEvent actionEvent) {
+    }
 }

@@ -7,13 +7,6 @@ import ba.unsa.etf.rpr.exceptions.MarketException;
 import java.util.List;
 
 public interface ItemsDao extends Dao<Items> {
-    /**
-     * Returns all items that contains given text.
-     *
-     * @param text search string for items
-     * @return list of items
-     */
-    List<Items> searchByText(String text) throws MarketException;
 
     /**
      * Returns all items that contains given text.

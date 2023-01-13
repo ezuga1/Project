@@ -26,47 +26,60 @@
       </BorderPane.margin>
     </VBox>
   </top>
-  <center>
-    <VBox BorderPane.alignment="CENTER">
-      <children>
-        <ScrollPane>
-          <content>
-            <VBox>
-              <children>
-                <HBox>
-                  <children>
-                    <ImageView fx:id="productImage1" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                    <Label fx:id="productName1" text="Product Name" wrapText="true" />
-                    <Label fx:id="productPrice1" text="" />
-                    <Button mnemonicParsing="false" onAction="#onAddToCart1" text="Add to Cart" />
-                  </children>
-                </HBox>
-                <HBox>
-                  <children>
-                    <ImageView fx:id="productImage2" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                    <Label fx:id="productName2" text="Product Name" wrapText="true" />
-                    <Label fx:id="productPrice2" text="" />
-                        <Button mnemonicParsing="" onAction="#onAddToCart2" text="Add to Cart" />
-                  </children>
-                </HBox>
-                <HBox>
-                  <children>
-                    <ImageView fx:id="productImage3" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                    <Label fx:id="productName3" text="Product Name" wrapText="true" />
-                    <Label fx:id="productPrice3" text="" />
-                    <Button mnemonicParsing="false" onAction="#onAddToCart3" text="Add to Cart" />
-                  </children>
-                </HBox>
-              </children>
-            </VBox>
-          </content>
-        </ScrollPane>
-      </children>
-      <BorderPane.margin>
-        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
-      </BorderPane.margin>
-    </VBox>
-  </center>
+    <center>
+      <VBox BorderPane.alignment="CENTER">
+        <children>
+          <HBox>
+            <children>
+              <Label text="Search by price range: " />
+              <TextField fx:id="minPriceField" promptText="Min Price" />
+              <Label text=" - " />
+              <TextField fx:id="maxPriceField" promptText="Max Price" />
+              <Button mnemonicParsing="false" onAction="#onSearchByPrice" text="Search" />
+            </children>
+          </HBox>
+          <HBox>
+            <children>
+              <Label text="Search by category: " />
+              <ChoiceBox fx:id="categoryChoice" />
+              <Button mnemonicParsing="false" onAction="#onSearchByCategory" text="Search" />
+            </children>
+          </HBox>
+          <ScrollPane>
+            <content>
+              <VBox>
+                <children>
+                  <HBox>
+                    <children>
+                      <ImageView fx:id="productImage1" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                      <Label fx:id="productName1" text="Product Name" wrapText="true" />
+                      <Label fx:id="productPrice1" text="" />
+                      <Button mnemonicParsing="false" onAction="#onAddToCart1" text="Add to Cart" />
+                    </children>
+                  </HBox>
+                  <HBox>
+                    <children>
+                      <ImageView fx:id="productImage2" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                      <Label fx:id="productName2" text="Product Name" wrapText="true" />
+                      <Label fx:id="productPrice2" text="" />
+                      <Button mnemonicParsing="false" onAction="#onAddToCart2" text="Add to Cart" />
+                    </children>
+                  </HBox>
+                  <HBox>
+                    <children>
+                      <ImageView fx:id="productImage3" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                      <Label fx:id="productName3" text="Product Name" wrapText="true" />
+                      <Label fx:id="productPrice3" text="" />
+
+                    </children>
+                  </HBox>
+                </children>
+              </VBox>
+            </content>
+          </ScrollPane>
+        </children>
+      </VBox>
+    </center>
   <bottom>
     <HBox BorderPane.alignment="CENTER">
       <children>
@@ -75,3 +88,4 @@
     </HBox>
   </bottom>
 </BorderPane>
+
