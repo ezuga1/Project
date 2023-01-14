@@ -12,7 +12,7 @@
         <HBox>
           <children>
             <Button mnemonicParsing="false" onAction="#onClickHome" text="Home" BorderPane.alignment="CENTER_LEFT" />
-            <Button mnemonicParsing="false" onAction="#onClickShop" text="Shop" BorderPane.alignment="CENTER_LEFT" />
+            <Button mnemonicParsing="false" onAction="#randomItem" text="Random item" BorderPane.alignment="CENTER_LEFT" />
             <Button mnemonicParsing="false" onAction="#onClickContact" text="Contact" BorderPane.alignment="CENTER_RIGHT" />
             <Button mnemonicParsing="false" onAction="#onClickLogin" text="Login" BorderPane.alignment="CENTER_RIGHT" />
           </children>

@@ -1,11 +1,14 @@
 package ba.unsa.etf.rpr;
 
+import ba.unsa.etf.rpr.business.ItemsManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import java.io.IOException;
 
@@ -21,10 +24,13 @@ public class MarketController {
         stage.show();
     }
 
-    public void onClickShop(ActionEvent actionEvent) {
+    public void randomItem(ActionEvent actionEvent) {
+        ItemsManager random = new ItemsManager();
+        infoBox(null, "Item you might like", "Random item from our shop");
     }
 
     public void onClickContact(ActionEvent actionEvent) {
+
     }
 
     public void onClickLogin(ActionEvent actionEvent) {
@@ -44,4 +50,13 @@ public class MarketController {
 
     public void onSearchByPrice(ActionEvent actionEvent) {
     }
+
+
+   public static void infoBox(String message, String text, String title){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(text);
+        alert.setContentText(message);
+        alert.show();
+   }
 }
