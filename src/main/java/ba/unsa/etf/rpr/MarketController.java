@@ -29,8 +29,12 @@ public class MarketController {
         infoBox(null, "Item you might like", "Random item from our shop");
     }
 
-    public void onClickContact(ActionEvent actionEvent) {
-
+    public void onClickContact(ActionEvent actionEvent) throws IOException{
+         root = FXMLLoader.load(getClass().getResource("/fxml/contact.fxml"));
+         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+         scene = new Scene(root);
+         stage.setScene(scene);
+         stage.show();
     }
 
     public void onClickLogOut(ActionEvent actionEvent) throws IOException {
