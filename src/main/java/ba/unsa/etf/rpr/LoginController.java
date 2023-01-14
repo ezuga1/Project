@@ -48,7 +48,7 @@ public class LoginController {
         boolean valid = jdbcDao.validate(userNameField.getText(), passwordField.getText());
 
         if(valid){
-            infoBox("Login successful!", null, "Failed");
+            infoBox("Login successful!", null, "Success");
 
             root = FXMLLoader.load(getClass().getResource("/fxml/market.fxml"));
             stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
