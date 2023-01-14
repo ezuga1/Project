@@ -58,6 +58,7 @@ public class MarketController {
     }
 
     public void onSearchByPrice(ActionEvent actionEvent) {
+
     }
 
 
