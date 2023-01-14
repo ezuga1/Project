@@ -31,7 +31,6 @@ public class MarketController {
 
     public void onClickContact(ActionEvent actionEvent) {
 
-
     }
 
     public void onClickLogOut(ActionEvent actionEvent) throws IOException {

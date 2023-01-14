@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.ContactController">
+   <top>
+      <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <buttons>
+            <Button mnemonicParsing="false" text="Home" onAction="#onClickHome">
+               <opaqueInsets>
+                  <Insets right="25.0" />
+               </opaqueInsets>
+            </Button>
+            <Button mnemonicParsing="false" text="LogOut" onAction="#onClickLogOut" />
+         </buttons>
+      </ButtonBar>
+   </top>
+   <center>
+      <TextArea prefHeight="345.0" prefWidth="600.0" promptText="Contact Page" text="Phone: 033-123-456&#10;Mobile: 061-123-456&#10;Email: techmarket@gmail.com&#10;Adress: Sarajevo, Zmaja od Bosne bb&#10;Work time: &#10;&#9;Mon - Fri:08:00 - 16:00 &#10;&#9;Sat: 08:00 - 13:00 " BorderPane.alignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font></TextArea>
+   </center>
+</BorderPane>
