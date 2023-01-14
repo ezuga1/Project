@@ -14,7 +14,7 @@
                   <Insets right="25.0" />
                </opaqueInsets>
             </Button>
-            <Button mnemonicParsing="false" text="LogOut" onAction="#onClickLogOut" />
+            <Button mnemonicParsing="false" text="Logout" onAction="#onClickLogOut" />
          </buttons>
       </ButtonBar>
    </top>
