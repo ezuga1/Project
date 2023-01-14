@@ -1,10 +1,24 @@
 package ba.unsa.etf.rpr;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class MarketController {
-
-    public void onClickHome(ActionEvent actionEvent) {
+    private Parent root;
+    private Stage stage;
+    private Scene scene;
+    public void onClickHome(ActionEvent actionEvent) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("/fxml/market.fxml"));
+        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void onClickShop(ActionEvent actionEvent) {

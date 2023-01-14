@@ -5,24 +5,24 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml" fx:controller="ba.unsa.etf.rpr.MarketController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.MarketController">
   <top>
     <VBox BorderPane.alignment="CENTER">
       <children>
         <HBox>
           <children>
-            <Button mnemonicParsing="false" onAction="#onClickHome" text="Home" BorderPane.alignment="CENTER_LEFT"/>
+            <Button mnemonicParsing="false" onAction="#onClickHome" text="Home" BorderPane.alignment="CENTER_LEFT" />
             <Button mnemonicParsing="false" onAction="#onClickShop" text="Shop" BorderPane.alignment="CENTER_LEFT" />
             <Button mnemonicParsing="false" onAction="#onClickContact" text="Contact" BorderPane.alignment="CENTER_RIGHT" />
             <Button mnemonicParsing="false" onAction="#onClickLogin" text="Login" BorderPane.alignment="CENTER_RIGHT" />
           </children>
           <padding>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
           </padding>
         </HBox>
       </children>
       <BorderPane.margin>
-        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
       </BorderPane.margin>
     </VBox>
   </top>
@@ -49,12 +49,15 @@
             <content>
               <VBox>
                 <children>
-                  <HBox>
+                  <HBox alignment="TOP_CENTER" prefWidth="359.0">
                     <children>
-                      <ImageView fx:id="productImage1" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                      <ImageView fx:id="productImage1" fitHeight="183.0" fitWidth="182.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                                 <viewport>
+                                    <Rectangle2D />
+                                 </viewport></ImageView>
                       <Label fx:id="productName1" text="Product Name" wrapText="true" />
-                      <Label fx:id="productPrice1" text="" />
                       <Button mnemonicParsing="false" onAction="#onAddToCart1" text="Add to Cart" />
+                      <Label fx:id="productPrice1" text="" />
                     </children>
                   </HBox>
                   <HBox>
@@ -83,9 +86,8 @@
   <bottom>
     <HBox BorderPane.alignment="CENTER">
       <children>
-        <Label text=""/>
+        <Label text="" />
       </children>
     </HBox>
   </bottom>
 </BorderPane>
-
