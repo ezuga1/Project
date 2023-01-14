@@ -9,9 +9,9 @@ package ba.unsa.etf.rpr.dao;
  * @author Ernad Zuga
  */
 public class DaoFactory {
-    private static final CategoryDao categoryDao = new CategoryDaoSQLImpl();
-    private static final ItemsDao itemsDao = new ItemsDaoSQLImpl();
-    private static final UserDao userDao = new UserDaoSQLImpl();
+    private static final CategoryDao categoryDao = CategoryDaoSQLImpl.getInstance();
+    private static final ItemsDao itemsDao = ItemsDaoSQLImpl.getInstance();
+    private static final UserDao userDao = UserDaoSQLImpl.getInstance();
 
     private DaoFactory(){
 
