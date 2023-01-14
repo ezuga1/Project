@@ -31,9 +31,15 @@ public class MarketController {
 
     public void onClickContact(ActionEvent actionEvent) {
 
+
     }
 
-    public void onClickLogin(ActionEvent actionEvent) {
+    public void onClickLogOut(ActionEvent actionEvent) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
+        stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void onAddToCart1(ActionEvent actionEvent) {
