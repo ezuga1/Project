@@ -4,11 +4,13 @@ import ba.unsa.etf.rpr.business.ItemsManager;
 import ba.unsa.etf.rpr.domain.Items;
 import ba.unsa.etf.rpr.exceptions.MarketException;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
@@ -16,14 +18,23 @@ import java.io.IOException;
 import java.util.List;
 
 public class MarketController {
+    @FXML
+    private TextArea textArea1;
+
     public void initialize(){
         ItemsManager itemsManager = new ItemsManager();
         try {
             List<Items> items = itemsManager.getAll();
+            StringBuilder sb = new StringBuilder();
+            for(Items item : items){
+                sb.append(item.toString());
+            }
+            textArea1.setText(sb.toString());
         } catch (MarketException e) {
             throw new RuntimeException(e);
         }
     }
+
     private Parent root;
     private Stage stage;
     private Scene scene;
