@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
 <BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.MarketController">
@@ -45,41 +44,41 @@
               <Button mnemonicParsing="false" onAction="#onSearchByCategory" text="Search" />
             </children>
           </HBox>
-          <ScrollPane>
-            <content>
-              <VBox>
-                <children>
-                  <HBox alignment="TOP_CENTER" prefWidth="359.0">
-                    <children>
-                      <ImageView fx:id="productImage1" fitHeight="183.0" fitWidth="182.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
-                                 <viewport>
-                                    <Rectangle2D />
-                                 </viewport></ImageView>
-                      <Label fx:id="productName1" text="Product Name" wrapText="true" />
-                      <Button mnemonicParsing="false" onAction="#onAddToCart1" text="Add to Cart" />
-                      <Label fx:id="productPrice1" text="" />
-                    </children>
-                  </HBox>
-                  <HBox>
-                    <children>
-                      <ImageView fx:id="productImage2" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                      <Label fx:id="productName2" text="Product Name" wrapText="true" />
-                      <Label fx:id="productPrice2" text="" />
-                      <Button mnemonicParsing="false" onAction="#onAddToCart2" text="Add to Cart" />
-                    </children>
-                  </HBox>
-                  <HBox>
-                    <children>
-                      <ImageView fx:id="productImage3" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                      <Label fx:id="productName3" text="Product Name" wrapText="true" />
-                      <Label fx:id="productPrice3" text="" />
-                      <Button mnemonicParsing="false" onAction="#onAddToCart1" text="Add to Cart" />
-                    </children>
-                  </HBox>
-                </children>
-              </VBox>
-            </content>
-          </ScrollPane>
+          <ScrollPane prefHeight="261.0" prefWidth="600.0">
+               <content>
+                  <VBox prefHeight="268.0" prefWidth="597.0">
+                     <children>
+                        <SplitPane prefHeight="160.0" prefWidth="200.0">
+                          <items>
+                            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="122.0" prefWidth="595.0">
+                                 <children>
+                                    <Button layoutX="484.0" layoutY="54.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Button" />
+                                 </children>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
+                        <Separator prefWidth="200.0" />
+                        <SplitPane layoutX="10.0" layoutY="10.0" prefHeight="160.0" prefWidth="200.0">
+                           <items>
+                              <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="122.0" prefWidth="595.0">
+                                 <children>
+                                    <Button layoutX="484.0" layoutY="54.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Button" />
+                                 </children>
+                              </AnchorPane>
+                           </items>
+                        </SplitPane>
+                        <SplitPane layoutX="10.0" layoutY="10.0" prefHeight="160.0" prefWidth="200.0">
+                           <items>
+                              <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="122.0" prefWidth="595.0">
+                                 <children>
+                                    <Button layoutX="484.0" layoutY="54.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Button" />
+                                 </children>
+                              </AnchorPane>
+                           </items>
+                        </SplitPane>
+                     </children>
+                  </VBox>
+               </content></ScrollPane>
         </children>
       </VBox>
     </center>

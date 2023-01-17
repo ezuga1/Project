@@ -3,12 +3,12 @@ package ba.unsa.etf.rpr.domain;
 import java.util.Objects;
 
 public class Items implements Idable{
-    int itemID;
-    String itemName;
-    String price;
-    String description;
-    int categoryID;
-    int userID;
+    private int itemID;
+    private String itemName;
+    private String price;
+    private String description;
+    private int categoryID;
+    private int userID;
 
     public int getId(){
         return itemID;

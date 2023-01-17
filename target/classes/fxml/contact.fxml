@@ -9,12 +9,13 @@
    <top>
       <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <buttons>
-            <Button mnemonicParsing="false" text="Home" onAction="#onClickHome">
+            <Button mnemonicParsing="false" onAction="#onClickHome" text="Home">
                <opaqueInsets>
                   <Insets right="25.0" />
                </opaqueInsets>
             </Button>
-            <Button mnemonicParsing="false" text="Logout" onAction="#onClickLogOut" />
+            <Button mnemonicParsing="false" onAction="#onClickLogOut" text="Logout" />
+            <HBox prefHeight="100.0" prefWidth="200.0" />
          </buttons>
       </ButtonBar>
    </top>

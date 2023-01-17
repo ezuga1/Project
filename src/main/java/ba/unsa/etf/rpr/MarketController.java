@@ -1,6 +1,8 @@
 package ba.unsa.etf.rpr;
 
 import ba.unsa.etf.rpr.business.ItemsManager;
+import ba.unsa.etf.rpr.domain.Items;
+import ba.unsa.etf.rpr.exceptions.MarketException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -11,8 +13,17 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 
 import java.io.IOException;
+import java.util.List;
 
 public class MarketController {
+    public void initialize(){
+        ItemsManager itemsManager = new ItemsManager();
+        try {
+            List<Items> items = itemsManager.getAll();
+        } catch (MarketException e) {
+            throw new RuntimeException(e);
+        }
+    }
     private Parent root;
     private Stage stage;
     private Scene scene;

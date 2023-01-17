@@ -30,5 +30,5 @@ public interface ItemsDao extends Dao<Items> {
      * @return random item
      * @throws MarketException
      */
-    Items randomItem() throws MarketException;;
+    Items randomItem() throws MarketException;
 }

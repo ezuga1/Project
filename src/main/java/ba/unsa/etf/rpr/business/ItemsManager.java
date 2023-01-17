@@ -35,4 +35,5 @@ public Items randomItem() throws MarketException {
         return DaoFactory.itemsDao().randomItem();
 
 }
+
 }

@@ -66,7 +66,7 @@ public class ItemsDaoSQLImpl extends AbstractDao<Items> implements ItemsDao {
         item.put("item_name", object.getItemName());
         item.put("price", object.getPrice());
         item.put("description", object.getDescription());
-        item.put("category_name", object.getCategoryID());
+        item.put("category_id", object.getCategoryID());
         item.put("user_id", object.getUserID());
         return item;
     }
