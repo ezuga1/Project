@@ -20,7 +20,7 @@ public class MainFX extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Category category = new Category();
+        /*Category category = new Category();
         CategoryManager categoryManager = new CategoryManager();
         category.setName("Laptops");
         category.setStatus("Available");
@@ -35,7 +35,7 @@ public class MainFX extends Application {
         item.setDescription("desc");
         item.setCategoryID(1);
         item.setUserID(1);
-        itemsManager.add(item);
+        itemsManager.add(item);*/
 
 
 
