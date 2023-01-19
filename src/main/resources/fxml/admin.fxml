@@ -20,10 +20,9 @@
     <center>
         <TableView fx:id="itemsTable" BorderPane.alignment="CENTER">
             <columns>
-                <TableColumn fx:id="colId" prefWidth="75" text="ID" />
                 <TableColumn fx:id="colName" prefWidth="100" text="Name" />
                 <TableColumn fx:id="colPrice" prefWidth="100" text="Price" />
-                <TableColumn fx:id="colStock" prefWidth="100" text="Stock" />
+                <TableColumn fx:id="colDesc" prefWidth="100" text="Description" />
             </columns>
         </TableView>
     </center>
