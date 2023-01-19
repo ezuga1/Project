@@ -51,7 +51,9 @@
          <InnerShadow />
       </effect>
   </Button>
+   <Button minHeight="-Infinity" minWidth="20.0" mnemonicParsing="false" onAction="#adminLogin" prefHeight="28.0" prefWidth="310.0" text="Log in as employee" GridPane.columnSpan="2" GridPane.rowIndex="5" />
    <rowConstraints>
+      <RowConstraints />
       <RowConstraints />
       <RowConstraints />
       <RowConstraints />
