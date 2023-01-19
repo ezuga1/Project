@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml" fx:controller="ba.unsa.etf.rpr.AddController">
+    <center>
+        <VBox alignment="TOP_CENTER" spacing="10.0">
+            <children>
+                <HBox spacing="10.0">
+                    <children>
+                        <Label text="Item Name:" />
+                        <TextField fx:id="txtItemName" />
+                    </children>
+                </HBox>
+                <HBox spacing="10.0">
+                    <children>
+                        <Label text="Item Price:" />
+                        <TextField fx:id="txtItemPrice" />
+                    </children>
+                </HBox>
+                <HBox spacing="10.0">
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#onAddItem" text="Add Item" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>
