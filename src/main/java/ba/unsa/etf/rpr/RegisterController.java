@@ -92,7 +92,10 @@ public class RegisterController {
        }
 
     }
+    @FXML
+    public void adminLogin(ActionEvent actionEvent){
 
+    }
 
 
 
