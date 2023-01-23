@@ -7,12 +7,22 @@ import ba.unsa.etf.rpr.domain.Items;
 import ba.unsa.etf.rpr.exceptions.MarketException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
 import java.awt.*;
+import java.io.IOException;
 
 
 public class AddCategoryController {
+    private Parent root;
+    private Stage stage;
+    private Scene scene;
     @FXML
     private TextField categoryName;
 
@@ -39,5 +49,14 @@ public class AddCategoryController {
         alert.setTitle(tittle);
         alert.setHeaderText(text);
         alert.show();
+    }
+
+    public void onCancel(ActionEvent actionEvent) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("/fxml/admin.fxml"));
+        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
     }
 }

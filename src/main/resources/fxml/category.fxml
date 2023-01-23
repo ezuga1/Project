@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http.//javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="ba.unsa.etf.rpr.AddCategoryController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.AddCategoryController">
     <center>
         <VBox alignment="TOP_CENTER" spacing="10.0">
             <children>
@@ -16,12 +16,13 @@
                 <HBox spacing="10.0">
                     <children>
                         <Label text="Category Status:" />
-                        <TextField fx:id="categoryStatus"/>
+                        <TextField fx:id="categoryStatus" />
                     </children>
                 </HBox>
                 <HBox spacing="10.0">
                     <children>
-                        <Button mnemonicParsing="false" onAction="#onAddCategory" text="Add Category"/>
+                        <Button mnemonicParsing="false" onAction="#onAddCategory" text="Add Category" />
+                  <Button mnemonicParsing="false" onAction="#onCancel" prefHeight="25.0" prefWidth="89.0" text="Cancel" />
                     </children>
                 </HBox>
             </children>
