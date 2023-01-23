@@ -4,16 +4,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml" fx:controller="ba.unsa.etf.rpr.AdminController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="ba.unsa.etf.rpr.AdminController">
     <top>
         <HBox BorderPane.alignment="CENTER">
             <children>
-                <Button mnemonicParsing="false" onAction="#addItem" text="Add Item" BorderPane.alignment="CENTER_LEFT"/>
-                <Button mnemonicParsing="false" onAction="#updateItem" text="Update Item" BorderPane.alignment="CENTER_LEFT" />
+                <Button mnemonicParsing="false" onAction="#addItem" text="Add Item" BorderPane.alignment="CENTER_LEFT" />
+                <Button mnemonicParsing="false" onAction="#updateItem" text="Add Category" BorderPane.alignment="CENTER_LEFT" />
                 <Button mnemonicParsing="false" onAction="#deleteItem" text="Delete Item" BorderPane.alignment="CENTER_RIGHT" />
             </children>
             <padding>
-                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </padding>
         </HBox>
     </top>
@@ -29,7 +29,7 @@
     <bottom>
         <HBox BorderPane.alignment="CENTER">
             <children>
-                <Label text=""/>
+                <Label text="" />
             </children>
         </HBox>
     </bottom>
