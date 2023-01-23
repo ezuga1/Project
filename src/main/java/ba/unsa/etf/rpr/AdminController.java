@@ -7,13 +7,22 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.List;
 
 public class AdminController {
+    private Parent root;
+    private Stage stage;
+    private Scene scene;
     @FXML
     private TableView<Items> itemsTable;
     @FXML
@@ -42,7 +51,11 @@ public class AdminController {
     public void deleteItem(ActionEvent actionEvent) {
     }
 
-    public void addCategory(ActionEvent actionEvent) {
-
+    public void addCategory(ActionEvent actionEvent) throws IOException {
+            root = FXMLLoader.load(getClass().getResource("/fxml/category.fxml"));
+            stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
     }
 }
