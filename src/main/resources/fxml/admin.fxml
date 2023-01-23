@@ -9,7 +9,7 @@
         <HBox BorderPane.alignment="CENTER">
             <children>
                 <Button mnemonicParsing="false" onAction="#addItem" text="Add Item" BorderPane.alignment="CENTER_LEFT" />
-                <Button mnemonicParsing="false" onAction="#updateItem" text="Add Category" BorderPane.alignment="CENTER_LEFT" />
+                <Button mnemonicParsing="false" onAction="#addCategory" text="Add Category" BorderPane.alignment="CENTER_LEFT" />
                 <Button mnemonicParsing="false" onAction="#deleteItem" text="Delete Item" BorderPane.alignment="CENTER_RIGHT" />
             </children>
             <padding>

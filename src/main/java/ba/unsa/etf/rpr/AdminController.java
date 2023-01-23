@@ -42,7 +42,7 @@ public class AdminController {
     public void deleteItem(ActionEvent actionEvent) {
     }
 
-    public void updateItem(ActionEvent actionEvent) {
+    public void addCategory(ActionEvent actionEvent) {
 
     }
 }
