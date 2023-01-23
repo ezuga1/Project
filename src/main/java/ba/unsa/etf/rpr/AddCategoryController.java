@@ -19,16 +19,17 @@ public class AddCategoryController {
     @FXML
     private TextField categoryStatus;
     public void onAddCategory(ActionEvent actionEvent) throws MarketException {
-        String catName = categoryName.getText();
-        String catStatus = categoryStatus.getText();
-
-        Category category = new Category();
-        CategoryManager categoryManager = new CategoryManager();
-        category.setName(catName);
-        category.setStatus(catStatus);
-        categoryManager.add(category);
-
-
+        try {
+            String catName = categoryName.getText();
+            String catStatus = categoryStatus.getText();
+            Category category = new Category();
+            CategoryManager categoryManager = new CategoryManager();
+            category.setName(catName);
+            category.setStatus(catStatus);
+            categoryManager.add(category);
+        }catch (MarketException e){
+            e.printStackTrace();
+        }
         infoBox("Category added successfully", null, "Success");
 
     }
