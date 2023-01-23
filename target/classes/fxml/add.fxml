@@ -37,7 +37,7 @@
                   <Button mnemonicParsing="false" onAction="#onCancel" prefHeight="25.0" prefWidth="70.0" text="Cancel" />
                     </children>
                 </HBox>
-            <TextArea prefHeight="187.0" prefWidth="600.0" text="Note: " />
+            <TextArea prefHeight="109.0" prefWidth="600.0" text="Note: &#10;CategoryID for Laptop is 14 &#10;CategoryID for IOS Phone is 15&#10;CategoryID for Android Phone is 16&#10;" />
             </children>
         </VBox>
     </center>
