@@ -1,7 +1,10 @@
 package ba.unsa.etf.rpr;
 
+import ba.unsa.etf.rpr.business.CategoryManager;
 import ba.unsa.etf.rpr.business.ItemsManager;
+import ba.unsa.etf.rpr.domain.Category;
 import ba.unsa.etf.rpr.domain.Items;
+import ba.unsa.etf.rpr.exceptions.MarketException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -14,7 +17,16 @@ public class AddCategoryController {
 
     @FXML
     private TextField categoryStatus;
-    public void onAddCategory(ActionEvent actionEvent) {
+    public void onAddCategory(ActionEvent actionEvent) throws MarketException {
+        String catName = categoryName.getText();
+        String catStatus = categoryStatus.getText();
+
+        Category category = new Category();
+        CategoryManager categoryManager = new CategoryManager();
+        category.setName(catName);
+        category.setStatus(catStatus);
+        categoryManager.add(category);
+
 
     }
 }
