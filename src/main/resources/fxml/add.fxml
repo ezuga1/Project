@@ -18,6 +18,18 @@
                         <TextField fx:id="txtItemPrice" />
                     </children>
                 </HBox>
+                    <HBox spacing="10.0">
+                        <children>
+                            <Label text="Item Description:" />
+                            <TextField fx:id="ItemDescription" />
+                        </children>
+                    </HBox>
+                    <HBox spacing="10.0">
+                        <children>
+                            <Label text="Category ID:" />
+                            <TextField fx:id="CategoryId"/>
+                        </children>
+                    </HBox>
                 <HBox spacing="10.0">
                     <children>
                         <Button mnemonicParsing="false" onAction="#onAddItem" text="Add Item" />
