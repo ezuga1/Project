@@ -44,8 +44,12 @@ public class AdminController {
 
 
     }
-    public void addItem(ActionEvent actionEvent) {
-
+    public void addItem(ActionEvent actionEvent) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("/fxml/add.fxml"));
+        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void deleteItem(ActionEvent actionEvent) {
