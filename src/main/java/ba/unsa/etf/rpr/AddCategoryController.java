@@ -7,6 +7,7 @@ import ba.unsa.etf.rpr.domain.Items;
 import ba.unsa.etf.rpr.exceptions.MarketException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import java.awt.*;
 
@@ -28,5 +29,14 @@ public class AddCategoryController {
         categoryManager.add(category);
 
 
+        infoBox("Category added successfully", null, "Success");
+
+    }
+    public static void infoBox(String message, String text, String tittle){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText(message);
+        alert.setTitle(tittle);
+        alert.setHeaderText(text);
+        alert.show();
     }
 }
