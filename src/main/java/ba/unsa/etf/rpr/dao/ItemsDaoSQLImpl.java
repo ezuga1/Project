@@ -85,8 +85,8 @@ public class ItemsDaoSQLImpl extends AbstractDao<Items> implements ItemsDao {
     }
 
     @Override
-    public List<Items> searchByPrice(String price1, String price2) throws MarketException {
-        return executeQuery("SELECT * FROM Items WHERE price BETWEEN ? AND ?", new Object[]{price1, price2});
+    public List<Items> searchByPrice(String price) throws MarketException {
+        return executeQuery("SELECT * FROM Items WHERE price = ?", new Object[]{price});
     }
 
     @Override

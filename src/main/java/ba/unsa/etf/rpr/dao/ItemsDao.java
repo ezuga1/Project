@@ -22,7 +22,7 @@ public interface ItemsDao extends Dao<Items> {
      * @return list of items between given prices
      *
      */
-    List<Items> searchByPrice(String price1, String price2) throws MarketException;
+    List<Items> searchByPrice(String price) throws MarketException;
 
     /**
      * Return random item from database

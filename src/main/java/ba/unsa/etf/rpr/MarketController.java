@@ -26,8 +26,8 @@ import java.util.List;
 public class MarketController {
     @FXML
     private ChoiceBox<Category> categoryChoice;
-
-
+    @FXML
+    private TextField Price;
     @FXML
     private TableView<Items> itemsTable;
     @FXML
@@ -95,8 +95,11 @@ public class MarketController {
 
 
 
-    public void onSearchByPrice(ActionEvent actionEvent) {
-
+    public void onSearchByPrice(ActionEvent actionEvent) throws MarketException {
+        String price = Price.getText();
+        ItemsManager itemsManager = new ItemsManager();
+        List<Items> items = itemsManager.searchItems(price);
+        itemsTable.setItems(FXCollections.observableArrayList(items));
     }
 
 
