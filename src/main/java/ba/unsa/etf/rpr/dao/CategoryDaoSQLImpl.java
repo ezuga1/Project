@@ -36,7 +36,7 @@ public class CategoryDaoSQLImpl extends AbstractDao<Category> implements Categor
             Category cat = new Category();
             cat.setId(rs.getInt("category_id"));
             cat.setName(rs.getString("name"));
-            cat.setName(rs.getString("status"));
+            cat.setStatus(rs.getString("status"));
             return cat;
         } catch (SQLException e) {
             throw new MarketException(e.getMessage(), e);

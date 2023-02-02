@@ -32,11 +32,7 @@ public class Category implements Idable {
 
     @Override
     public String toString() {
-        return "Category{" +
-                "categoryID=" + categoryID +
-                ", name='" + name + '\'' +
-                ", status='" + status + '\'' +
-                '}';
+        return name;
     }
 
     @Override

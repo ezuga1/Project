@@ -1,6 +1,7 @@
 package ba.unsa.etf.rpr.business;
 import ba.unsa.etf.rpr.dao.Dao;
 import ba.unsa.etf.rpr.dao.DaoFactory;
+import ba.unsa.etf.rpr.domain.Category;
 import ba.unsa.etf.rpr.domain.Items;
 import ba.unsa.etf.rpr.exceptions.MarketException;
 
@@ -18,6 +19,9 @@ public class ItemsManager {
     }
  public List<Items> searchItems(String price1, String price2) throws MarketException {
         return DaoFactory.itemsDao().searchByPrice(price1, price2);
+ }
+ public List<Items> searchItemsByCategory(Category category) throws MarketException{
+        return DaoFactory.itemsDao().searchByCategory(category);
  }
 public void delete (int id) throws MarketException {
         DaoFactory.itemsDao().delete(id);

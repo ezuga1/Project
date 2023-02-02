@@ -41,7 +41,7 @@
             <children>
               <Label text="Search by category: " />
               <ChoiceBox fx:id="categoryChoice" />
-              <Button mnemonicParsing="false" onAction="#onSearchByCategory" prefHeight="25.0" prefWidth="56.0" text="Buy">
+              <Button mnemonicParsing="false" onAction="#Buy" prefHeight="25.0" prefWidth="56.0" text="Buy">
                      <HBox.margin>
                         <Insets left="370.0" />
                      </HBox.margin></Button>

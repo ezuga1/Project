@@ -41,11 +41,14 @@
             <children>
               <Label text="Search by category: " />
               <ChoiceBox fx:id="categoryChoice" />
-              <Button mnemonicParsing="false" onAction="#onSearchByCategory" text="Search" />
+              <Button mnemonicParsing="false" onAction="#Buy" prefHeight="25.0" prefWidth="56.0" text="Buy">
+                     <HBox.margin>
+                        <Insets left="370.0" />
+                     </HBox.margin></Button>
             </children>
           </HBox>
-          <ScrollPane prefHeight="261.0" prefWidth="600.0" />
-          <TableView fx:id="itemsTable" prefHeight="539.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+          <ScrollPane prefHeight="19.0" prefWidth="600.0" />
+          <TableView fx:id="itemsTable" prefHeight="320.0" prefWidth="600.0" BorderPane.alignment="CENTER">
             <columns>
               <TableColumn fx:id="colName" prefWidth="100" text="Name" />
               <TableColumn fx:id="colPrice" prefWidth="100" text="Price" />

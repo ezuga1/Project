@@ -1,6 +1,8 @@
 package ba.unsa.etf.rpr;
 
+import ba.unsa.etf.rpr.business.CategoryManager;
 import ba.unsa.etf.rpr.business.ItemsManager;
+import ba.unsa.etf.rpr.domain.Category;
 import ba.unsa.etf.rpr.domain.Items;
 import ba.unsa.etf.rpr.exceptions.MarketException;
 import javafx.collections.FXCollections;
@@ -11,18 +13,20 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.EventListener;
 import java.util.List;
 
 public class MarketController {
+    @FXML
+    private ChoiceBox<Category> categoryChoice;
+
     @FXML
     private TableView<Items> itemsTable;
     @FXML
@@ -40,6 +44,20 @@ public class MarketController {
         List<Items> itemsList = itemsManager.getAll();
         ObservableList<Items> items = FXCollections.observableList(itemsList);
         itemsTable.setItems(FXCollections.observableArrayList(itemsList));
+
+        CategoryManager categoryManager = new CategoryManager();
+        categoryChoice.setItems(FXCollections.observableList(categoryManager.getAll()));
+        categoryChoice.valueProperty().addListener(((observableValue, category, t1) -> {
+            if(t1 != null){
+                try {
+                    ObservableList<Items> newItems = FXCollections.observableArrayList(itemsManager.searchItemsByCategory((Category)  t1));
+                    itemsTable.setItems(newItems);
+                }
+                catch (MarketException e){
+                    e.printStackTrace();
+                }
+            }
+        }));
     }
 
     private Parent root;
@@ -74,8 +92,7 @@ public class MarketController {
         stage.show();
     }
 
-    public void onSearchByCategory(ActionEvent actionEvent) {
-    }
+
 
     public void onSearchByPrice(ActionEvent actionEvent) {
 
@@ -89,4 +106,7 @@ public class MarketController {
         alert.setContentText(message);
         alert.show();
    }
+
+    public void Buy(ActionEvent actionEvent) {
+    }
 }
