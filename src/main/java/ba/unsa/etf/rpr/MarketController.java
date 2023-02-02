@@ -27,6 +27,7 @@ public class MarketController {
     @FXML
     private ChoiceBox<Category> categoryChoice;
 
+
     @FXML
     private TableView<Items> itemsTable;
     @FXML

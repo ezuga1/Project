@@ -39,8 +39,11 @@
           </HBox>
           <HBox prefHeight="62.0" prefWidth="600.0">
             <children>
-              <Label text="Search by category: " />
-              <ChoiceBox fx:id="categoryChoice" />
+              <Label prefHeight="17.0" prefWidth="149.0" text="Search by category: " />
+              <ChoiceBox fx:id="categoryChoice" prefHeight="25.0" prefWidth="61.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin></ChoiceBox>
               <Button mnemonicParsing="false" onAction="#Buy" prefHeight="25.0" prefWidth="56.0" text="Buy">
                      <HBox.margin>
                         <Insets left="370.0" />
