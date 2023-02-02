@@ -112,5 +112,6 @@ public class MarketController {
    }
 
     public void Buy(ActionEvent actionEvent) {
+
     }
 }
