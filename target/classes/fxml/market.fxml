@@ -31,9 +31,7 @@
           <HBox>
             <children>
               <Label text="Search by price range: " />
-              <TextField fx:id="minPriceField" promptText="Min Price" />
-              <Label text=" - " />
-              <TextField fx:id="maxPriceField" promptText="Max Price" />
+              <TextField fx:id="Price" promptText="Price" />
               <Button mnemonicParsing="false" onAction="#onSearchByPrice" text="Search" />
             </children>
           </HBox>
