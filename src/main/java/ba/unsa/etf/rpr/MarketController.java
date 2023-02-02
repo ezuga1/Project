@@ -3,7 +3,6 @@ package ba.unsa.etf.rpr;
 import ba.unsa.etf.rpr.business.ItemsManager;
 import ba.unsa.etf.rpr.domain.Items;
 import ba.unsa.etf.rpr.exceptions.MarketException;
-import com.sun.org.apache.xerces.internal.xs.ItemPSVI;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -73,15 +72,6 @@ public class MarketController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-    }
-
-    public void onAddToCart1(ActionEvent actionEvent) {
-    }
-
-    public void onAddToCart2(ActionEvent actionEvent) {
-    }
-
-    public void onAddToCart3(ActionEvent actionEvent) {
     }
 
     public void onSearchByCategory(ActionEvent actionEvent) {
