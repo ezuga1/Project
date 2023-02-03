@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -52,7 +53,19 @@ public class AdminController {
         stage.show();
     }
 
-    public void deleteItem(ActionEvent actionEvent) {
+    public void deleteItem(ActionEvent actionEvent) throws MarketException {
+        Items selectedItem = itemsTable.getSelectionModel().getSelectedItem();
+       if(selectedItem != null){
+           ItemsManager itemsManager = new ItemsManager();
+           itemsManager.delete(selectedItem.getId());
+           itemsTable.getItems().remove(selectedItem);
+           itemsTable.refresh();
+       }else {
+           Alert alert = new Alert(Alert.AlertType.ERROR);
+           alert.setTitle("Error");
+           alert.setHeaderText("No item selected");
+           alert.setContentText("Please select an item from the table");
+       }
     }
 
     public void addCategory(ActionEvent actionEvent) throws IOException {
