@@ -8,6 +8,11 @@ import ba.unsa.etf.rpr.exceptions.MarketException;
 
 import java.util.List;
 
+/**
+ * Business Logic Layer for Users
+ *
+ * @author Ernad Zuga
+ */
 public class UserManager {
     public List<User> getAll() throws MarketException{
         return DaoFactory.userDao().getAll();

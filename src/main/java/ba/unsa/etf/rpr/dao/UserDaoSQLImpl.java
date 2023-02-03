@@ -3,6 +3,7 @@ package ba.unsa.etf.rpr.dao;
 import ba.unsa.etf.rpr.domain.User;
 import ba.unsa.etf.rpr.exceptions.MarketException;
 import com.mysql.cj.x.protobuf.MysqlxPrepare;
+import jdk.vm.ci.code.site.Mark;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -60,4 +61,6 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao{
     public User getByEmailAddress(User email) throws MarketException {
        return executeQueryUnique("SELECT * FROM Users where emai_address = ?", new Object[]{email});
     }
+    @Override
+    public boolean validate(String username, String password) throws MarketException{return true;}
 }
