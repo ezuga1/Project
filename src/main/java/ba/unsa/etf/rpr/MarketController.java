@@ -111,7 +111,18 @@ public class MarketController {
         alert.show();
    }
 
-    public void Buy(ActionEvent actionEvent) {
-
+    public void Buy(ActionEvent actionEvent) throws MarketException {
+        Items selectedItem = itemsTable.getSelectionModel().getSelectedItem();
+        if(selectedItem != null){
+            ItemsManager itemsManager = new ItemsManager();
+            itemsManager.delete(selectedItem.getId());
+            itemsTable.getItems().remove(selectedItem);
+            itemsTable.refresh();
+        }else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("No item selected");
+            alert.setContentText("Please select an item from the table if you want to buy something");
+        }
     }
 }
