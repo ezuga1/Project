@@ -115,14 +115,19 @@ public class MarketController {
         Items selectedItem = itemsTable.getSelectionModel().getSelectedItem();
         if(selectedItem != null){
             ItemsManager itemsManager = new ItemsManager();
-            itemsManager.delete(selectedItem.getId());
             itemsTable.getItems().remove(selectedItem);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Success");
+            alert.setHeaderText("You have successfully bought " + selectedItem.getItemName());
+            alert.setContentText("We hope you will visit us again");
+            alert.show();
             itemsTable.refresh();
         }else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("No item selected");
             alert.setContentText("Please select an item from the table if you want to buy something");
+            alert.show();
         }
     }
 }
