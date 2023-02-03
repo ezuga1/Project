@@ -15,15 +15,19 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.stage.Window;
-
+import javafx.scene.image.ImageView;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.EventListener;
 import java.util.List;
 
 public class MarketController {
+    @FXML
+    public ImageView ImageView;
     @FXML
     private ChoiceBox<Category> categoryChoice;
     @FXML
@@ -38,6 +42,7 @@ public class MarketController {
     private TableColumn<Items, String> colDesc;
 
     public void initialize() throws MarketException{
+        ImageView.setImage(new Image("/zzmarket.JPG"));
         colName.setCellValueFactory(new PropertyValueFactory<Items, String>("itemName"));
         colPrice.setCellValueFactory(new PropertyValueFactory<Items, String>("price"));
         colDesc.setCellValueFactory(new PropertyValueFactory<Items, String>("description"));

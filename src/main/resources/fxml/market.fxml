@@ -2,18 +2,24 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
 <BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.MarketController">
   <top>
     <VBox BorderPane.alignment="CENTER">
       <children>
-        <HBox>
+        <HBox prefHeight="104.0" prefWidth="580.0">
           <children>
-            <Button mnemonicParsing="false" onAction="#onClickHome" text="Home" BorderPane.alignment="CENTER_LEFT" />
-            <Button mnemonicParsing="false" onAction="#randomItem" text="Random item" BorderPane.alignment="CENTER_LEFT" />
-            <Button mnemonicParsing="false" onAction="#onClickContact" text="Contact" BorderPane.alignment="CENTER_RIGHT" />
-            <Button mnemonicParsing="false" onAction="#onClickLogOut" text="Logout" BorderPane.alignment="CENTER_RIGHT" />
+            <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#onClickHome" text="Home" BorderPane.alignment="CENTER_LEFT" />
+            <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#randomItem" text="Random item" BorderPane.alignment="CENTER_LEFT" />
+            <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#onClickContact" text="Contact" BorderPane.alignment="CENTER_RIGHT" />
+            <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#onClickLogOut" prefHeight="25.0" prefWidth="67.0" text="Logout" BorderPane.alignment="CENTER_RIGHT" />
+                  <ImageView fx:id="ImageView" fitHeight="66.0" fitWidth="314.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets left="110.0" top="20.0" />
+                     </HBox.margin>
+                  </ImageView>
           </children>
           <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
