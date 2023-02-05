@@ -16,7 +16,7 @@ import java.util.List;
 
 public class CategoryManager {
     public void validateCategoryName(String name) throws MarketException {
-        if (name == null || name.length() > 45 || name.length() < 3) {
+        if (name == null || name.length() > 45 || name.length() < 2) {
             throw new MarketException("Category name must be between 3 and 45 chars");
         }
 
