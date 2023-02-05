@@ -10,6 +10,7 @@ import ba.unsa.etf.rpr.exceptions.MarketException;
 
 
 import net.bytebuddy.asm.Advice;
+import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.*;
 
 import java.io.PrintWriter;
