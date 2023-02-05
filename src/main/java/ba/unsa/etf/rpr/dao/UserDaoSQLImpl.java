@@ -36,8 +36,9 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao{
         try{
             User user = new User();
             user.setId(rs.getInt("user_id"));
-            user.setUsername(rs.getString("surname"));
+            user.setUsername(rs.getString("username"));
             user.setEmailAddress(rs.getString("email_address"));
+            user.setPassword(rs.getString("password"));
             return user;
         }
         catch (SQLException e){
@@ -51,6 +52,7 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao{
         item.put("id", object.getId());
         item.put("username", object.getUsername());
         item.put("email_address", object.getEmailAddress());
+        item.put("password", object.getPassword());
         return item;
     }
 
