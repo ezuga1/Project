@@ -1,7 +1,6 @@
 package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.business.UserManager;
-import ba.unsa.etf.rpr.dao.JDBCDao;
 import ba.unsa.etf.rpr.domain.User;
 import ba.unsa.etf.rpr.exceptions.MarketException;
 import javafx.event.ActionEvent;
@@ -16,10 +15,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.Window;
-import ba.unsa.etf.rpr.dao.JDBCDao;
 
 import java.io.IOException;
-import java.sql.*;
 
 public class RegisterController {
 
