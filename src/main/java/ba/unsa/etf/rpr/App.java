@@ -2,14 +2,11 @@ package ba.unsa.etf.rpr;
 
 import ba.unsa.etf.rpr.business.ItemsManager;
 import ba.unsa.etf.rpr.business.CategoryManager;
-import ba.unsa.etf.rpr.dao.*;
 import ba.unsa.etf.rpr.domain.Items;
-import ba.unsa.etf.rpr.domain.User;
 import ba.unsa.etf.rpr.domain.Category;
 import ba.unsa.etf.rpr.exceptions.MarketException;
 
 
-import net.bytebuddy.asm.Advice;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.*;
 
@@ -74,8 +71,23 @@ public class App {
             }
             Items item = new Items();
             item.setCategoryID(category.getId());
-            item.setItemName(cl.getArgList().get(0));
+            String itemToAdd= cl.getArgList().get(0);
+            String itemName = "";
+            String[] tmp = itemToAdd.split(" ");
+            for(int i=0; i<2; i++){
+                itemName += tmp[i]+" ";
+            }
+            String itemPrice = " ";
+            for(int i=2; i<4; i++)
+                itemPrice+=tmp[i]+" ";
+            String itemDesc = " ";
+            for(int i=4; i< tmp.length; i++)
+                itemDesc += tmp[i]+" ";
+            item.setItemName(itemName);
+            item.setPrice(itemPrice);
+            item.setDescription(itemDesc);
             item.setUserID(2);
+            itemsManager.add(item);
             System.out.println("You successfully added item to database");
 
         }
@@ -87,7 +99,14 @@ public class App {
             try{
                 CategoryManager categoryManager = new CategoryManager();
                 Category cat = new Category();
-                cat.setName(cl.getArgList().get(0));
+                String catToAdd = cl.getArgList().get(0);
+                String catName = "";
+                String[] tmp = catToAdd.split(" ");
+                catName += tmp[0];
+                String catStatus ="";
+                catStatus += tmp[1];
+                cat.setName(catName);
+                cat.setStatus(catStatus);
                 categoryManager.add(cat);
                 System.out.println("Category added successfully");
             }
