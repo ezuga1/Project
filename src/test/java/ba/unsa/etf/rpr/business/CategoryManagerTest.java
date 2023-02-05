@@ -90,4 +90,16 @@ public class CategoryManagerTest {
        daoFactoryMockedStatic.close();
     }
 
+    /**
+     * Adding new category
+     */
+    @Test
+    void addNewCategory() throws MarketException{
+        Category newCategory = new Category("New category");
+        categoryManager.add(newCategory);
+
+        Assertions.assertTrue(true);
+        Mockito.verify(categoryManager).add(newCategory);
+    }
+
 }
