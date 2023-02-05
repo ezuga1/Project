@@ -12,6 +12,7 @@ import ba.unsa.etf.rpr.exceptions.MarketException;
 import net.bytebuddy.asm.Advice;
 import org.apache.commons.cli.*;
 
+import java.io.PrintWriter;
 
 
 /**
@@ -29,4 +30,12 @@ public class App{
     private static final Option getCategories = new Option("getC","get-categories",false, "Printing all categories from Teck market database");
     private static final Option categoryDefinition = new Option(null, "category", false, "Defining category for next added item");
 
+
+    public static void printFormattedOptions(Options options){
+        HelpFormatter helpFormatter = new HelpFormatter();
+        PrintWriter printWriter = new PrintWriter(System.out);
+        helpFormatter.printUsage(printWriter,150,"java -jar Project.jar [option] 'something else if needed' ");
+        helpFormatter.printOptions(printWriter,150, options, 2,7);
+        printWriter.close();
+    }
 }
