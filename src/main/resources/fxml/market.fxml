@@ -9,7 +9,7 @@
   <top>
     <VBox BorderPane.alignment="CENTER">
       <children>
-        <HBox prefHeight="104.0" prefWidth="580.0">
+        <HBox prefHeight="73.0" prefWidth="706.0">
           <children>
             <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#onClickHome" text="Home" BorderPane.alignment="CENTER_LEFT" />
             <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#randomItem" text="Random item" BorderPane.alignment="CENTER_LEFT" />
@@ -32,11 +32,11 @@
     </VBox>
   </top>
     <center>
-      <VBox BorderPane.alignment="CENTER">
+      <VBox prefHeight="269.0" prefWidth="726.0" BorderPane.alignment="CENTER">
         <children>
           <HBox>
             <children>
-              <Label text="Search by price range: " />
+              <Label text="Search by price: " />
               <TextField fx:id="Price" promptText="Price KM" />
               <Button mnemonicParsing="false" onAction="#onSearchByPrice" text="Search" />
             </children>
