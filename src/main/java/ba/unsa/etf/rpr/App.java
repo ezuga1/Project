@@ -13,6 +13,7 @@ import net.bytebuddy.asm.Advice;
 import org.apache.commons.cli.*;
 
 import java.io.PrintWriter;
+import java.util.List;
 
 
 /**
@@ -49,7 +50,10 @@ public class App {
         return options;
     }
 
-
-
+    public static Category searchThroughCategories(List<Category> listOfCategories, String categoryName){
+        Category category = null;
+        category = listOfCategories.stream().filter(cat -> cat.getName().toLowerCase().equals(categoryName.toLowerCase())).findAny().get();
+        return category;
+    }
 
 }
