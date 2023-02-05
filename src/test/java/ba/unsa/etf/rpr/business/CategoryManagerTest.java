@@ -4,7 +4,6 @@ import ba.unsa.etf.rpr.dao.CategoryDaoSQLImpl;
 import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Category;
 import ba.unsa.etf.rpr.exceptions.MarketException;
-import net.bytebuddy.utility.RandomString;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
