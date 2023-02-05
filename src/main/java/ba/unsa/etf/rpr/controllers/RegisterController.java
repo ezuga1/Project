@@ -1,4 +1,4 @@
-package ba.unsa.etf.rpr;
+package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.dao.JDBCDao;
 import javafx.event.ActionEvent;

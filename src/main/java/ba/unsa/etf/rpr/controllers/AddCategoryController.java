@@ -1,4 +1,4 @@
-package ba.unsa.etf.rpr;
+package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.business.CategoryManager;
 import ba.unsa.etf.rpr.business.ItemsManager;
