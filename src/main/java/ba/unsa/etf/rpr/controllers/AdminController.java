@@ -76,7 +76,11 @@ public class AdminController {
             stage.show();
     }
 
-    public void Logout(ActionEvent actionEvent) {
-
+    public void Logout(ActionEvent actionEvent) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
+        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }
