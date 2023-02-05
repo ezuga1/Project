@@ -75,4 +75,8 @@ public class AdminController {
             stage.setScene(scene);
             stage.show();
     }
+
+    public void Logout(ActionEvent actionEvent) {
+
+    }
 }
