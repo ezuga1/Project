@@ -56,4 +56,54 @@ public class App {
         return category;
     }
 
+    public static void main(String[] args) throws ParseException, MarketException {
+        Options options = addOptions();
+        CommandLineParser commandLineParser = new DefaultParser();
+        CommandLine cl = commandLineParser.parse(options,args);
+
+        if((cl.hasOption(addItem.getOpt()) || cl.hasOption(addItem.getLongOpt())) && cl.hasOption((categoryDefinition.getLongOpt()))){
+            ItemsManager itemsManager = new ItemsManager();
+            CategoryManager categoryManager = new CategoryManager();
+            Category category = null;
+            try{
+                category = searchThroughCategories(categoryManager.getAll(), cl.getArgList().get(1));
+            }catch (Exception e){
+                System.out.println("There is no category in the list! Try again");
+                System.exit(1);
+            }
+            Items item = new Items();
+            item.setCategoryID(category.getId());
+            item.setItemName(cl.getArgList().get(0));
+            item.setUserID(2);
+            System.out.println("You successfully added item to database");
+
+        }
+        else if(cl.hasOption(getItems.getOpt()) || cl.hasOption(getItems.getLongOpt())){
+            ItemsManager itemsManager = new ItemsManager();
+            itemsManager.getAll().forEach(i -> System.out.println(i.getItemName()));
+        }
+        else if(cl.hasOption(addCategory.getOpt()) || cl.hasOption(addCategory.getLongOpt())){
+            try{
+                CategoryManager categoryManager = new CategoryManager();
+                Category cat = new Category();
+                cat.setName(cl.getArgList().get(0));
+                categoryManager.add(cat);
+                System.out.println("Category added successfully");
+            }
+            catch (Exception e){
+                System.out.println("There is already category with same name in database! Try again");
+                System.exit(1);
+            }
+        }
+        else if(cl.hasOption(getCategories.getOpt()) || cl.hasOption(getCategories.getLongOpt())){
+            CategoryManager categoryManager = new CategoryManager();
+            categoryManager.getAll().forEach(c -> System.out.println(c.getName()));
+        }
+        else{
+            printFormattedOptions(options);
+            System.exit(-1);
+        }
+    }
+
+
 }
