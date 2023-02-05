@@ -1,6 +1,9 @@
 package ba.unsa.etf.rpr.controllers;
 
+import ba.unsa.etf.rpr.business.UserManager;
 import ba.unsa.etf.rpr.dao.JDBCDao;
+import ba.unsa.etf.rpr.domain.User;
+import ba.unsa.etf.rpr.exceptions.MarketException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,7 +33,7 @@ public class LoginController {
     @FXML
     private Button loginButton;
     @FXML
-    public void login(ActionEvent actionEvent) throws IOException {
+    public void login(ActionEvent actionEvent) throws IOException, MarketException {
         Window owner = loginButton.getScene().getWindow();
 
         System.out.println(userNameField.getText());
@@ -44,9 +47,14 @@ public class LoginController {
             showAlert(Alert.AlertType.ERROR, owner, "Ooops, login error", "Please enter your password");
             return;
         }
-        JDBCDao jdbcDao = new JDBCDao();
-        boolean valid = jdbcDao.validate(userNameField.getText(), passwordField.getText());
-
+        boolean valid = false;
+        UserManager userManager = new UserManager();
+        for(User u : userManager.getAll()){
+            if(u.getUsername().equals(userNameField.getText()) && u.getPassword().equals(passwordField.getText())){
+                valid = true;
+                break;
+            }
+        }
         if(valid){
             infoBox("Login successful!", null, "Success");
 
