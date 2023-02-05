@@ -13,7 +13,10 @@ public class Category implements Idable {
         this.categoryID = id;
     }
 
-
+    public Category(String name) {
+        this.name = name;
+    }
+    public Category(){}
     public String getName() {
         return name;
     }
