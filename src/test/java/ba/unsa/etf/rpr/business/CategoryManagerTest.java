@@ -27,6 +27,7 @@ public class CategoryManagerTest {
 
         categoryDaoSQLMock = Mockito.mock(CategoryDaoSQLImpl.class);
         categories = new ArrayList<>();
-
+        categories.addAll(Arrays.asList(new Category("PC"), new Category("Tablet"), new Category("Keyboard"), new Category("Mouse")));
     }
+
 }
