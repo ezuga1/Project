@@ -54,4 +54,16 @@ public class UserManagerTest {
         Mockito.verify(userManager).validate(user.getUsername(),user.getPassword());
         daoFactoryMockedStatic.close();
     }
+
+    /**
+     * Adding new user
+     */
+    @Test
+    void addNewUser() throws MarketException {
+        User newUser = new User("Test");
+        userManager.add(newUser);
+
+        Assertions.assertTrue(true);
+        Mockito.verify(userManager).add(newUser);
+    }
 }
