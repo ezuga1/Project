@@ -41,7 +41,7 @@ public class AppTest extends ApplicationTest {
    }
 
     /**
-     * Test for Add button
+     * Test for Add button in AddCategoryController
      */
     @Test
     public void testAddCategory() throws MarketException {
@@ -61,4 +61,6 @@ public class AppTest extends ApplicationTest {
         assertEquals("Fruits", c.getName());
         assertEquals("Active", c.getStatus());
     }
+
+
 }

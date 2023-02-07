@@ -22,7 +22,7 @@ import java.io.IOException;
 public class AddCategoryController {
     private Parent root;
     private Stage stage;
-    private Scene scene;
+    public Scene scene;
     @FXML
     private TextField categoryName;
 
