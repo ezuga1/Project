@@ -21,7 +21,7 @@
                 </HBox>
                 <HBox spacing="10.0">
                     <children>
-                        <Button mnemonicParsing="false" onAction="#onAddCategory" text="Add Category" />
+                        <Button fx:id="AddCategory" mnemonicParsing="false" onAction="#onAddCategory" text="Add Category" />
                   <Button mnemonicParsing="false" onAction="#onCancel" prefHeight="25.0" prefWidth="89.0" text="Cancel" />
                     </children>
                 </HBox>
