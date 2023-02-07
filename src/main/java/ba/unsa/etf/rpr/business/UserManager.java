@@ -28,7 +28,7 @@ public class UserManager {
     public void update(User user) throws MarketException{
         DaoFactory.userDao().update(user);
     }
-    public static boolean validate(String name, String password) throws MarketException {
+    public boolean validate(String name, String password) throws MarketException {
         UserManager userManager = new UserManager();
         for(User u : userManager.getAll()){
             if(u.getUsername().equals(name) && u.getPassword().equals(password))
