@@ -46,15 +46,8 @@ public class LoginController {
             showAlert(Alert.AlertType.ERROR, owner, "Ooops, login error", "Please enter your password");
             return;
         }
-        boolean valid = false;
-        UserManager userManager = new UserManager();
-        for(User u : userManager.getAll()){
-            if(u.getUsername().equals(userNameField.getText()) && u.getPassword().equals(passwordField.getText())){
-                valid = true;
-                break;
-            }
-        }
-        if(valid){
+
+        if(){
             infoBox("Login successful!", null, "Success");
 
             root = FXMLLoader.load(getClass().getResource("/fxml/market.fxml"));
