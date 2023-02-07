@@ -7,11 +7,14 @@ import ba.unsa.etf.rpr.exceptions.MarketException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import static org.mockito.Mockito.when;
 
 
 public class UserManagerTest {
@@ -35,5 +38,20 @@ public class UserManagerTest {
         userDaoSQLMock = Mockito.mock(UserDaoSQLImpl.class);
         users = new ArrayList<>();
         users.addAll(Arrays.asList(new User("Test"), new User("User"), new User("Test_User"), new User("User_Test")));
+    }
+    /**
+     * Test for username which doesn't exist in database
+     */
+    @Test
+    void addWrong() throws MarketException {
+        MockedStatic<DaoFactory> daoFactoryMockedStatic = Mockito.mockStatic(DaoFactory.class);
+        daoFactoryMockedStatic.when(DaoFactory::userDao).thenReturn(userDaoSQLMock);
+
+        when(DaoFactory.userDao().getAll()).thenReturn(users);
+        Mockito.doCallRealMethod().when(userManager).add(user);
+        Assertions.assertEquals(false, userManager.validate(user.getUsername(),user.getPassword()));
+        daoFactoryMockedStatic.verify(DaoFactory::userDao);
+        Mockito.verify(userManager).validate(user.getUsername(),user.getPassword());
+        daoFactoryMockedStatic.close();
     }
 }
