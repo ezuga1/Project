@@ -77,9 +77,9 @@ public class MarketController {
         stage.show();
     }
 
-    public void randomItem(ActionEvent actionEvent) {
+    public void randomItem(ActionEvent actionEvent) throws MarketException {
         ItemsManager random = new ItemsManager();
-        infoBox(null, "Item you might like", "Random item from our shop");
+        infoBox(null, "Item you might like from our shop: " + random.randomItem(), "Random item from our shop");
     }
 
     public void onClickContact(ActionEvent actionEvent) throws IOException{

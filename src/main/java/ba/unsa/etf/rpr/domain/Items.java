@@ -59,14 +59,7 @@ public class Items implements Idable{
 
     @Override
     public String toString() {
-        return "Items{" +
-                "itemID=" + itemID +
-                ", itemName='" + itemName + '\'' +
-                ", price='" + price + '\'' +
-                ", description='" + description + '\'' +
-                ", categoryID=" + categoryID +
-                ", userID=" + userID +
-                '}';
+
     }
 
     @Override
