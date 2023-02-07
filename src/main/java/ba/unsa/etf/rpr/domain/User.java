@@ -9,6 +9,11 @@ public class User implements Idable{
 
     private String password;
 
+    public User(String name){
+        username = name;
+    }
+
+    public User() {}
 
     public int getId(){
         return userID;
