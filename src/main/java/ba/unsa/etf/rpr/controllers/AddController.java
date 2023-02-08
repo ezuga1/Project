@@ -15,6 +15,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Controller for adding Item to database
+ * @author Ernad Zuga
+ */
 public class AddController {
     @FXML
     private TextField txtItemName;
@@ -27,6 +31,12 @@ public class AddController {
     private Stage stage;
     private Scene scene;
     private Parent root;
+
+    /**
+     * Method for Add Item button, where admin can add item to database.
+     * @param actionEvent
+     * @throws MarketException
+     */
     public void onAddItem(ActionEvent actionEvent) throws MarketException {
         ItemsManager itemsManager = new ItemsManager();
         Items item = new Items();
@@ -45,6 +55,11 @@ public class AddController {
 
     }
 
+    /**
+     * Method for Cancel Button, it sends us to admin page.
+     * @param actionEvent
+     * @throws IOException
+     */
     public void onCancel(ActionEvent actionEvent) throws IOException {
         root = FXMLLoader.load(getClass().getResource("/fxml/admin.fxml"));
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
