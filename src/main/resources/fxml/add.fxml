@@ -33,7 +33,7 @@
                     </HBox>
                 <HBox spacing="10.0">
                     <children>
-                        <Button mnemonicParsing="false" onAction="#onAddItem" prefHeight="25.0" prefWidth="70.0" text="Add Item" />
+                        <Button fx:id="AddItem" mnemonicParsing="false" onAction="#onAddItem" prefHeight="25.0" prefWidth="70.0" text="Add Item" />
                   <Button mnemonicParsing="false" onAction="#onCancel" prefHeight="25.0" prefWidth="70.0" text="Cancel" />
                     </children>
                 </HBox>
