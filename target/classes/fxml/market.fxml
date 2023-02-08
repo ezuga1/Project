@@ -14,7 +14,7 @@
             <Button fx:id="Home" minWidth="-Infinity" mnemonicParsing="false" onAction="#onClickHome" text="Home" BorderPane.alignment="CENTER_LEFT" />
             <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#randomItem" text="Random item" BorderPane.alignment="CENTER_LEFT" />
             <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#onClickContact" text="Contact" BorderPane.alignment="CENTER_RIGHT" />
-            <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#onClickLogOut" prefHeight="25.0" prefWidth="67.0" text="Logout" BorderPane.alignment="CENTER_RIGHT" />
+            <Button fx:id="logout" minWidth="-Infinity" mnemonicParsing="false" onAction="#onClickLogOut" prefHeight="25.0" prefWidth="67.0" text="Logout" BorderPane.alignment="CENTER_RIGHT" />
                   <ImageView fx:id="ImageView" fitHeight="66.0" fitWidth="314.0" pickOnBounds="true" preserveRatio="true">
                      <HBox.margin>
                         <Insets left="110.0" top="20.0" />
