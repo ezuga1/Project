@@ -18,6 +18,10 @@ import javafx.scene.control.Button;
 
 import java.io.IOException;
 
+/**
+ * Controller for user login
+ * @author Ernad Zuga
+ */
 public class LoginController {
     private Parent root;
     private Stage stage;
@@ -31,6 +35,13 @@ public class LoginController {
 
     @FXML
     private Button loginButton;
+
+    /**
+     * Method for user login with checking does user exist in database
+     * @param actionEvent
+     * @throws IOException
+     * @throws MarketException
+     */
     @FXML
     public void login(ActionEvent actionEvent) throws IOException, MarketException {
         Window owner = loginButton.getScene().getWindow();
@@ -62,6 +73,13 @@ public class LoginController {
 
 
     }
+
+    /**
+     * Method for Info Box that appears when user is logged in
+     * @param message
+     * @param text
+     * @param title
+     */
     public static void infoBox(String message, String text, String title){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setContentText(message);
@@ -69,6 +87,14 @@ public class LoginController {
         alert.setHeaderText(text);
         alert.show();
     }
+
+    /**
+     * Method for showing alert when user did not enter correct data
+     * @param alertType
+     * @param owner
+     * @param s
+     * @param message
+     */
     public static void showAlert(Alert.AlertType alertType, Window owner, String s, String message){
         Alert alert = new Alert(alertType);
         alert.setTitle(s);
@@ -77,6 +103,12 @@ public class LoginController {
         alert.initOwner(owner);
         alert.show();
     }
+
+    /**
+     * Method for going to register page if user did not register before
+     * @param actionEvent
+     * @throws IOException
+     */
     public void register(ActionEvent actionEvent) throws IOException {
         root = FXMLLoader.load(getClass().getResource("/fxml/register.fxml"));
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
