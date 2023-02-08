@@ -25,6 +25,10 @@ import java.util.ArrayList;
 import java.util.EventListener;
 import java.util.List;
 
+/**
+ * Controller for Market, main page
+ * @author Ernad Zuga
+ */
 public class MarketController {
     @FXML
     public ImageView ImageView;
@@ -41,6 +45,10 @@ public class MarketController {
     @FXML
     private TableColumn<Items, String> colDesc;
 
+    /**
+     * Method for setting up market page, with list of available items, searching by category or price and other functions
+     * @throws MarketException
+     */
     public void initialize() throws MarketException{
         ImageView.setImage(new Image("/zzmarket.JPG"));
         colName.setCellValueFactory(new PropertyValueFactory<Items, String>("itemName"));
@@ -69,6 +77,12 @@ public class MarketController {
     private Parent root;
     private Stage stage;
     private Scene scene;
+
+    /**
+     * Method for Home button, which return us to home page
+     * @param actionEvent
+     * @throws IOException
+     */
     public void onClickHome(ActionEvent actionEvent) throws IOException {
         root = FXMLLoader.load(getClass().getResource("/fxml/market.fxml"));
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
@@ -77,11 +91,21 @@ public class MarketController {
         stage.show();
     }
 
+    /**
+     * Method for Random Item button, it returns some random item from database
+     * @param actionEvent
+     * @throws MarketException
+     */
     public void randomItem(ActionEvent actionEvent) throws MarketException {
         ItemsManager random = new ItemsManager();
         infoBox(null, "Item you might like from our shop: \n" + random.randomItem() + "\nIf you want to buy it, you can find it in the list of our items.", "Random item from our shop");
     }
 
+    /**
+     * Method for Contact button, it sends us to Contact page
+     * @param actionEvent
+     * @throws IOException
+     */
     public void onClickContact(ActionEvent actionEvent) throws IOException{
          root = FXMLLoader.load(getClass().getResource("/fxml/contact.fxml"));
          stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
@@ -90,6 +114,11 @@ public class MarketController {
          stage.show();
     }
 
+    /**
+     * Method for Logout button, it returns us to login page
+     * @param actionEvent
+     * @throws IOException
+     */
     public void onClickLogOut(ActionEvent actionEvent) throws IOException {
         root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
         stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
@@ -98,7 +127,11 @@ public class MarketController {
         stage.show();
     }
 
-
+    /**
+     * Method for search by price field, returns list of items with entered price
+     * @param actionEvent
+     * @throws MarketException
+     */
 
     public void onSearchByPrice(ActionEvent actionEvent) throws MarketException {
         String price = Price.getText();
@@ -107,6 +140,12 @@ public class MarketController {
         itemsTable.setItems(FXCollections.observableArrayList(items));
     }
 
+    /**
+     * Method for interaction with customer
+     * @param message
+     * @param text
+     * @param title
+     */
 
    public static void infoBox(String message, String text, String title){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -116,6 +155,11 @@ public class MarketController {
         alert.show();
    }
 
+    /**
+     * Method for Buy button, where user can buy selected item from item list
+     * @param actionEvent
+     * @throws MarketException
+     */
     public void Buy(ActionEvent actionEvent) throws MarketException {
         Items selectedItem = itemsTable.getSelectionModel().getSelectedItem();
         if(selectedItem != null){
