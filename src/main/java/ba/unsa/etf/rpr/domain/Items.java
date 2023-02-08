@@ -2,6 +2,10 @@ package ba.unsa.etf.rpr.domain;
 
 import java.util.Objects;
 
+/**
+ * Bean class for items
+ * @author Ernad Zuga
+ */
 public class Items implements Idable{
     private int itemID;
     private String itemName;

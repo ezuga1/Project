@@ -2,6 +2,10 @@ package ba.unsa.etf.rpr.domain;
 
 import java.util.Objects;
 
+/**
+ * Bean class for categories
+ * @author Ernad Zuga
+ */
 public class Category implements Idable {
     int categoryID;
     String name;
