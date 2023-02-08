@@ -20,6 +20,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * Controller for admin page
+ * @author Ernad Zuga
+ */
 public class AdminController {
     private Parent root;
     private Stage stage;
@@ -33,7 +37,10 @@ public class AdminController {
     @FXML
     private TableColumn<Items,String> colDesc;
 
-
+    /**
+     * Method to set up admin page with list of currently existing items
+     * @throws MarketException
+     */
     public void initialize() throws MarketException {
         colName.setCellValueFactory(new PropertyValueFactory<Items, String>("itemName"));
         colPrice.setCellValueFactory(new PropertyValueFactory<Items, String>("price"));
@@ -45,6 +52,12 @@ public class AdminController {
 
 
     }
+
+    /**
+     * Method for Add Item button, where admin or employee can add item to database
+     * @param actionEvent
+     * @throws IOException
+     */
     public void addItem(ActionEvent actionEvent) throws IOException {
         root = FXMLLoader.load(getClass().getResource("/fxml/add.fxml"));
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
@@ -53,6 +66,11 @@ public class AdminController {
         stage.show();
     }
 
+    /**
+     * Method for Delete Item button, where admin or employee can delete item from database
+     * @param actionEvent
+     * @throws MarketException
+     */
     public void deleteItem(ActionEvent actionEvent) throws MarketException {
         Items selectedItem = itemsTable.getSelectionModel().getSelectedItem();
        if(selectedItem != null){
@@ -68,6 +86,11 @@ public class AdminController {
        }
     }
 
+    /**
+     * Method for Add Category button, where admin or employee can add category to database
+     * @param actionEvent
+     * @throws IOException
+     */
     public void addCategory(ActionEvent actionEvent) throws IOException {
             root = FXMLLoader.load(getClass().getResource("/fxml/category.fxml"));
             stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
@@ -76,6 +99,11 @@ public class AdminController {
             stage.show();
     }
 
+    /**
+     * Method for Logout button, it returns us to login page
+     * @param actionEvent
+     * @throws IOException
+     */
     public void Logout(ActionEvent actionEvent) throws IOException {
         root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
