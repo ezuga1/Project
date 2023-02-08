@@ -80,45 +80,9 @@ public class RegisterController {
        scene=new Scene(root);
        stage.setScene(scene);
        stage.show();
-       /*PreparedStatement psCheckUserExists = null;
-       ResultSet resultSet = null;
-       Connection conn = null;*/
-       /*try {
 
-
-           /*conn = DriverManager.getConnection("jdbc:mysql://sql.freedb.tech:3306/freedb_Tech_Market", "freedb_ezuga1", "yCjgsz%m#TSQ*3q");
-           psCheckUserExists = conn.prepareStatement("SELECT * FROM User WHERE username = ?");
-           psCheckUserExists.setString(1,userNameField.getText());
-           resultSet = psCheckUserExists.executeQuery();*/
-
-           /*if(resultSet.isBeforeFirst()){
-               System.out.println("User already exists");
-               Alert alert = new Alert(Alert.AlertType.ERROR);
-               alert.setContentText("You cannot use this username, it already exists");
-               alert.show();
-           }
-           else{
-               JDBCDao jdbcDao = new JDBCDao();
-
-               jdbcDao.insertUser(userNameField.getText(), emailField.getText(), passwordField.getText());
-               showAlert(Alert.AlertType.CONFIRMATION, owner, "Registration successfully!", userNameField.getText() + " welcome to our shop");
-
-               root = FXMLLoader.load(getClass().getResource("/fxml/market.fxml"));
-               stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-               scene=new Scene(root);
-               stage.setScene(scene);
-               stage.show();
-           }
-       }
-       catch (SQLException e) {
-           throw new RuntimeException(e);
-       }*/
 
     }
-  
-
-
-
     private void showAlert(Alert.AlertType alertType, Window owner, String s, String message) {
         Alert alert = new Alert(alertType);
         alert.setTitle(s);
