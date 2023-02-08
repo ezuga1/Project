@@ -7,12 +7,14 @@ import ba.unsa.etf.rpr.exceptions.MarketException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.junit.Before;
 import org.junit.Test;
 import org.testfx.api.FxRobot;
 import org.testfx.framework.junit.ApplicationTest;
-
+import javafx.application.Platform.*;
 import java.io.IOException;
 
+import static javafx.application.Platform.runLater;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -53,6 +55,29 @@ public class RegisterControllerTest extends ApplicationTest {
         assertEquals("Test1", user.getUsername());
         assertEquals("test1@test", user.getEmailAddress());
         assertEquals("test1", user.getPassword());
+
+    }
+    /**
+     * Test for login, user is registered
+     */
+    @Test
+    public void testLogin() throws IOException {
+        runLater(() ->{
+            Stage stage = new Stage();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
+            try {
+                stage.setScene(scene = new Scene(loader.load(),300,300));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            stage.show();
+            FxRobot robot = new FxRobot();
+            robot.clickOn("#userNameField").write("Test1");
+            robot.clickOn("#passwordField").write("test1");
+            robot.clickOn("#loginButton");
+
+        });
+
 
     }
 }
