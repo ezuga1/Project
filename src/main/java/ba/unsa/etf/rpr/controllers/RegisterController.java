@@ -18,6 +18,10 @@ import javafx.stage.Window;
 
 import java.io.IOException;
 
+/**
+ * Controller for user registration
+ * @author Ernad Zuga
+ */
 public class RegisterController {
 
     private Stage stage;
@@ -36,6 +40,12 @@ public class RegisterController {
     @FXML
     private Button registerButton;
 
+    /**
+     * Method for Register button, which adds user to database if he does not exist there
+     * @param actionEvent
+     * @throws IOException
+     * @throws MarketException
+     */
    @FXML
     public void register(ActionEvent actionEvent) throws IOException, MarketException {
 
@@ -83,6 +93,14 @@ public class RegisterController {
 
 
     }
+
+    /**
+     * Method for showing alert when some field is empty
+     * @param alertType
+     * @param owner
+     * @param s
+     * @param message
+     */
     private void showAlert(Alert.AlertType alertType, Window owner, String s, String message) {
         Alert alert = new Alert(alertType);
         alert.setTitle(s);
@@ -92,7 +110,11 @@ public class RegisterController {
         alert.show();
     }
 
-
+    /**
+     * Method for Admin or employee button login. It sends us to admin page
+     * @param actionEvent
+     * @throws IOException
+     */
     public void adminLogin(ActionEvent actionEvent) throws IOException {
         root = FXMLLoader.load(getClass().getResource("/fxml/admin.fxml"));
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
