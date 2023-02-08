@@ -18,6 +18,10 @@ import javafx.stage.Stage;
 import java.awt.*;
 import java.io.IOException;
 
+/**
+ * Controller for adding category to database
+ * @author Ernad Zuga
+ */
 
 public class AddCategoryController {
     private Parent root;
@@ -28,6 +32,12 @@ public class AddCategoryController {
 
     @FXML
     private TextField categoryStatus;
+
+    /**
+     * Method for Add Category Button.
+     * @param actionEvent
+     * @throws MarketException
+     */
     public void onAddCategory(ActionEvent actionEvent) throws MarketException {
         try {
             String catName = categoryName.getText();
@@ -43,6 +53,13 @@ public class AddCategoryController {
         infoBox("Category added successfully", null, "Success");
 
     }
+
+    /**
+     * Method for infoBox that appears when adding is successful
+     * @param message
+     * @param text
+     * @param tittle
+     */
     public static void infoBox(String message, String text, String tittle){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setContentText(message);
@@ -51,6 +68,11 @@ public class AddCategoryController {
         alert.show();
     }
 
+    /**
+     * Method for Cancel Button, it sends us to admin page.
+     * @param actionEvent
+     * @throws IOException
+     */
     public void onCancel(ActionEvent actionEvent) throws IOException {
         root = FXMLLoader.load(getClass().getResource("/fxml/admin.fxml"));
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
