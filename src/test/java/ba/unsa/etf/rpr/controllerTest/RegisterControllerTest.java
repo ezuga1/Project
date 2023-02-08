@@ -75,10 +75,6 @@ public class RegisterControllerTest extends ApplicationTest {
             robot.clickOn("#passwordField").write("test1");
             robot.clickOn("#loginButton");
 
-           /*robot.lookup("#SearchPrice").tryQuery().isPresent();
-           Label lblPrice = robot.lookup("#SearchPrice").queryAs(Label.class);
-           assertNotNull(lblPrice);*/
-
         });
 
 
