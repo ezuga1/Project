@@ -14,28 +14,80 @@ import java.util.List;
  */
 
 public class ItemsManager {
+    /**
+     * Method for getting list of all items in database
+     * @return
+     * @throws MarketException
+     */
     public List<Items> getAll() throws MarketException {
         return DaoFactory.itemsDao().getAll();
     }
+
+    /**
+     * Method for searching item in database based on it's price
+     * @param price
+     * @return
+     * @throws MarketException
+     */
+
  public List<Items> searchItems(String price) throws MarketException {
         return DaoFactory.itemsDao().searchByPrice(price);
  }
+
+    /**
+     * Method for searching item in database based on it's category
+     * @param category
+     * @return
+     * @throws MarketException
+     */
  public List<Items> searchItemsByCategory(Category category) throws MarketException{
         return DaoFactory.itemsDao().searchByCategory(category);
  }
-public void delete (int id) throws MarketException {
+
+    /**
+     * Method for deleting item from database
+     * @param id
+     * @throws MarketException
+     */
+    public void delete (int id) throws MarketException {
         DaoFactory.itemsDao().delete(id);
 }
-public Items getById(int itemsId) throws MarketException {
+
+    /**
+     * Method to get item from database by item id
+     * @param itemsId
+     * @return
+     * @throws MarketException
+     */
+    public Items getById(int itemsId) throws MarketException {
         return DaoFactory.itemsDao().getById(itemsId);
 }
-public void update(Items item) throws MarketException {
+
+    /**
+     * Method for updating item in database
+     * @param item
+     * @throws MarketException
+     */
+    public void update(Items item) throws MarketException {
 DaoFactory.itemsDao().update(item);
 }
-public Items add(Items item) throws MarketException {
+
+    /**
+     * Method for adding item to database
+     * @param item
+     * @return
+     * @throws MarketException
+     */
+    public Items add(Items item) throws MarketException {
         return DaoFactory.itemsDao().add(item);
 }
-public Items randomItem() throws MarketException {
+
+    /**
+     * Method which returns random item from database
+     * @return
+     * @throws MarketException
+     */
+    public Items randomItem() throws MarketException {
         return DaoFactory.itemsDao().randomItem();
 
 }
