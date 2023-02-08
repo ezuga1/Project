@@ -15,31 +15,14 @@ import javafx.stage.Stage;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
+/**
+ * Main class for working with JavaFX framework
+ */
 
 public class MainFX extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-       /* Category category = new Category();
-        CategoryManager categoryManager = new CategoryManager();
-        category.setName("Laptops");
-        category.setStatus("Available");
-        categoryManager.add(category);
-
-
-
-        ItemsManager itemsManager = new ItemsManager();
-        Items item = new Items();
-        item.setItemName("Laptop");
-        item.setPrice("1500 KM");
-        item.setDescription("desc");
-        item.setCategoryID(1);
-        item.setUserID(1);
-        itemsManager.add(item);*/
-
-
-
-
         System.out.println(getClass());
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
         stage.setTitle("Tech market");
