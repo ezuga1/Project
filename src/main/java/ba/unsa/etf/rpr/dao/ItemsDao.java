@@ -6,12 +6,16 @@ import ba.unsa.etf.rpr.exceptions.MarketException;
 
 import java.util.List;
 
+/**
+ * Dao interface for Items domain bean
+ * @author Ernad Zuga
+ */
 public interface ItemsDao extends Dao<Items> {
 
     /**
-     * Returns all items that contains given text.
+     * Returns all items that contains given category.
      *
-     * @param category search string for items
+     * @param category search string for items of given category
      * @return list of items
      */
     List<Items> searchByCategory(Category category) throws MarketException;
