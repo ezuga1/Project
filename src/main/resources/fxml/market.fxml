@@ -5,13 +5,13 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane userData="Home_page" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.MarketController">
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.MarketController">
   <top>
     <VBox BorderPane.alignment="CENTER">
       <children>
         <HBox prefHeight="73.0" prefWidth="706.0">
           <children>
-            <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#onClickHome" text="Home" BorderPane.alignment="CENTER_LEFT" />
+            <Button fx:id="Home" minWidth="-Infinity" mnemonicParsing="false" onAction="#onClickHome" text="Home" BorderPane.alignment="CENTER_LEFT" />
             <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#randomItem" text="Random item" BorderPane.alignment="CENTER_LEFT" />
             <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#onClickContact" text="Contact" BorderPane.alignment="CENTER_RIGHT" />
             <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#onClickLogOut" prefHeight="25.0" prefWidth="67.0" text="Logout" BorderPane.alignment="CENTER_RIGHT" />
@@ -36,7 +36,7 @@
         <children>
           <HBox>
             <children>
-              <Label text="Search by price: " />
+              <Label fx:id="SearchPrice" text="Search by price: " />
               <TextField fx:id="Price" promptText="Price KM" />
               <Button mnemonicParsing="false" onAction="#onSearchByPrice" text="Search" />
             </children>
