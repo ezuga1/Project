@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import net.bytebuddy.utility.RandomString;
 import org.junit.Test;
 import org.testfx.api.FxRobot;
 import org.testfx.framework.junit.ApplicationTest;
@@ -26,12 +27,12 @@ public class RegisterControllerTest extends ApplicationTest {
     /**
      * Method to open registration page
      */
-   /* @Override
+    @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/register.fxml"));
        stage.setScene(scene = new Scene(loader.load(),300,300));
        stage.show();
-    }*/
+    }
 
     /**
      * Test for registration with correct input
@@ -39,9 +40,10 @@ public class RegisterControllerTest extends ApplicationTest {
     @Test
     public void testRegister() throws MarketException {
         FxRobot robot = new FxRobot();
-        robot.clickOn("#userNameField").write("Test1");
-        robot.clickOn("#emailField").write("test1@test");
-        robot.clickOn("#passwordField").write("test1");
+        String RandomString = String.valueOf(new RandomString());
+        robot.clickOn("#userNameField").write(RandomString);
+        robot.clickOn("#emailField").write(RandomString);
+        robot.clickOn("#passwordField").write(RandomString);
         robot.clickOn("#registerButton");
 
         User user = new User();
