@@ -7,20 +7,27 @@ import java.util.Objects;
  * @author Ernad Zuga
  */
 public class Category implements Idable {
-    int categoryID;
-    String name;
+    private int categoryID;
+    private String name;
     String status;
-    public int getId(){
-        return categoryID;
-    }
-    public void setId(int id){
-        this.categoryID = id;
-    }
 
     public Category(String name) {
         this.name = name;
     }
-    public Category(){}
+    public Category(){
+
+    }
+
+    @Override
+    public void setId(int categoryID) {
+        this.categoryID = categoryID;
+    }
+
+    @Override
+    public int getId() {
+        return categoryID;
+    }
+
     public String getName() {
         return name;
     }
@@ -38,22 +45,20 @@ public class Category implements Idable {
     }
 
     @Override
-    public String toString() {
-        return name;
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Category)) return false;
         Category category = (Category) o;
-        return getId() == category.getId() && getName().equals(category.getName()) && getStatus().equals(category.getStatus());
+        return categoryID == category.categoryID && Objects.equals(getName(), category.getName()) && Objects.equals(getStatus(), category.getStatus());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getName(), getStatus());
+        return Objects.hash(categoryID, getName(), getStatus());
     }
 
-
+    @Override
+    public String toString() {
+       return name;
+    }
 }

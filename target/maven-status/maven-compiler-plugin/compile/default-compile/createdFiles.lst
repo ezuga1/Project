@@ -1,7 +1,6 @@
 ba\unsa\etf\rpr\controllers\ContactController.class
 ba\unsa\etf\rpr\exceptions\MarketException.class
 ba\unsa\etf\rpr\controllers\MarketController.class
-ba\unsa\etf\rpr\dao\JDBCDao.class
 ba\unsa\etf\rpr\domain\Items.class
 ba\unsa\etf\rpr\dao\ItemsDaoSQLImpl.class
 ba\unsa\etf\rpr\business\CategoryManager.class

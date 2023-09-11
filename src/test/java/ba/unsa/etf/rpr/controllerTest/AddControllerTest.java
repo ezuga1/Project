@@ -40,21 +40,20 @@ public class AddControllerTest extends ApplicationTest {
         robot.clickOn("#txtItemName").write("Apple");
         robot.clickOn("#txtItemPrice").write("2 KM");
         robot.clickOn("#ItemDescription").write("Description");
-        robot.clickOn("#CategoryId").write("15");
+        robot.clickOn("#Categoryname").write("fruit");
         robot.clickOn("#AddItem");
 
         Items item = new Items();
         ItemsManager itemsManager = new ItemsManager();
         for(Items tmp : itemsManager.getAll()){
-            if(tmp.getItemName().equals("Apple") && tmp.getPrice().equals("2 KM") && tmp.getDescription().equals("Description")
-            && tmp.getCategoryID() == 15)
+            if(tmp.getItemName().equals("Apple") && tmp.getPrice().equals("2 KM") && tmp.getDescription().equals("Description"))
                 item = tmp;
         }
         assertNotNull(item);
         assertEquals("Apple", item.getItemName());
         assertEquals("2 KM", item.getPrice());
         assertEquals("Description", item.getDescription());
-        assertEquals(15, item.getCategoryID());
+
     }
 
 

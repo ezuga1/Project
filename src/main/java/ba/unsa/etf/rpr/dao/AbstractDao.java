@@ -16,9 +16,11 @@ import java.util.*;
 public abstract class AbstractDao <T extends Idable> implements Dao<T>{
     private static Connection connection = null;
     private String tableName;
+    private String idName;
 
-    public AbstractDao(String tableName){
+    public AbstractDao(String tableName, String idName){
         this.tableName = tableName;
+        this.idName = idName;
         createConnection();
     }
     private static void createConnection(){
@@ -71,14 +73,14 @@ public abstract class AbstractDao <T extends Idable> implements Dao<T>{
 
 
     public T getById(int id) throws MarketException{
-      return executeQueryUnique("SELECT * FROM " + this.tableName + " WHERE id = ?", new Object[]{id});
+      return executeQueryUnique("SELECT * FROM " + this.tableName + " WHERE " + this.idName + " = ?", new Object[]{id});
     }
     public List<T> getAll() throws MarketException{
         return executeQuery("SELECT * FROM "+ tableName, null);
     }
 
     public void delete(int id) throws MarketException{
-        String sql = "DELETE FROM "+ this.tableName +" WHERE " + id + " = ?";
+        String sql = "DELETE FROM "+ this.tableName + " WHERE " + this.idName + " = ?";
         try{
             PreparedStatement stmt = getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             stmt.setObject(1, id);
@@ -102,7 +104,7 @@ public abstract class AbstractDao <T extends Idable> implements Dao<T>{
             int counter = 1;
 
             for (Map.Entry<String, Object> entry: row.entrySet()) {
-                if (entry.getKey().equals("id")) continue; // skip ID
+                if (entry.getKey().equals(this.idName)) continue; // skip ID
                 stmt.setObject(counter, entry.getValue());
                 counter++;
             }
@@ -132,7 +134,7 @@ public abstract class AbstractDao <T extends Idable> implements Dao<T>{
             PreparedStatement stmt = getConnection().prepareStatement(builder.toString());
             int counter = 1;
             for (Map.Entry<String, Object> entry: row.entrySet()) {
-                if (entry.getKey().equals("id")) continue; // skip ID
+                if (entry.getKey().equals(this.idName)) continue; // skip ID
                 stmt.setObject(counter, entry.getValue());
                 counter++;
             }
@@ -199,7 +201,7 @@ public abstract class AbstractDao <T extends Idable> implements Dao<T>{
         int counter = 0;
         for (Map.Entry<String, Object> entry: row.entrySet()) {
             counter++;
-            if (entry.getKey().equals("id")) continue; //skip insertion of id due autoincrement
+            if (entry.getKey().equals(this.idName)) continue; //skip insertion of id due autoincrement
             columns.append(entry.getKey());
             questions.append("?");
             if (row.size() != counter) {
@@ -221,7 +223,7 @@ public abstract class AbstractDao <T extends Idable> implements Dao<T>{
         int counter = 0;
         for (Map.Entry<String, Object> entry: row.entrySet()) {
             counter++;
-            if (entry.getKey().equals("id")) continue; //skip update of id due where clause
+            if (entry.getKey().equals(this.idName)) continue; //skip update of id due where clause
             columns.append(entry.getKey()).append("= ?");
             if (row.size() != counter) {
                 columns.append(",");

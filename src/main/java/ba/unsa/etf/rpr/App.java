@@ -50,7 +50,7 @@ public class App {
 
     public static Category searchThroughCategories(List<Category> listOfCategories, String categoryName){
         Category category = null;
-        category = listOfCategories.stream().filter(cat -> cat.getName().toLowerCase().equals(categoryName.toLowerCase())).findAny().get();
+        category = listOfCategories.stream().filter(cat -> cat.getName().equalsIgnoreCase(categoryName)).findAny().get();
         return category;
     }
 
@@ -70,8 +70,11 @@ public class App {
                 System.exit(1);
             }
             Items item = new Items();
-            item.setCategoryID(category.getId());
-            String itemToAdd= cl.getArgList().get(0);
+            item.setCategoryID(category);
+            item.setItemName(cl.getArgList().get(0));
+            item.setPrice(cl.getArgList().get(2));
+            item.setDescription(cl.getArgList().get(3));
+            /*String itemToAdd= cl.getArgList().get(0);
             String itemName = "";
             String[] tmp = itemToAdd.split(" ");
             for(int i=0; i<2; i++){
@@ -85,7 +88,7 @@ public class App {
                 itemDesc += tmp[i]+" ";
             item.setItemName(itemName);
             item.setPrice(itemPrice);
-            item.setDescription(itemDesc);
+            item.setDescription(itemDesc);*/
             item.setUserID(2);
             itemsManager.add(item);
             System.out.println("You successfully added item to database");
@@ -99,14 +102,8 @@ public class App {
             try{
                 CategoryManager categoryManager = new CategoryManager();
                 Category cat = new Category();
-                String catToAdd = cl.getArgList().get(0);
-                String catName = "";
-                String[] tmp = catToAdd.split(" ");
-                catName += tmp[0];
-                String catStatus ="";
-                catStatus += tmp[1];
-                cat.setName(catName);
-                cat.setStatus(catStatus);
+                cat.setName(cl.getArgList().get(0));
+                cat.setStatus(cl.getArgList().get(1));
                 categoryManager.add(cat);
                 System.out.println("Category added successfully");
             }

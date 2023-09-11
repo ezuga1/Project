@@ -59,7 +59,6 @@ public class LoginController {
         }
         UserManager userManager = new UserManager();
         if(userManager.validate(userNameField.getText(), passwordField.getText())){
-            infoBox("Login successful!", null, "Success");
             root = FXMLLoader.load(getClass().getResource("/fxml/market.fxml"));
             stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
             scene=new Scene(root);

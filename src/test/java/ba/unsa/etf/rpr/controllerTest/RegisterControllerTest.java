@@ -41,9 +41,9 @@ public class RegisterControllerTest extends ApplicationTest {
     public void testRegister() throws MarketException {
         FxRobot robot = new FxRobot();
         String RandomString = String.valueOf(new RandomString());
-        robot.clickOn("#userNameField").write(RandomString);
-        robot.clickOn("#emailField").write(RandomString);
-        robot.clickOn("#passwordField").write(RandomString);
+        robot.clickOn("#userNameField").write("Test1");
+        robot.clickOn("#emailField").write("test1@test");
+        robot.clickOn("#passwordField").write("test1");
         robot.clickOn("#registerButton");
 
         User user = new User();

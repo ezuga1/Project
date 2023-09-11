@@ -21,7 +21,7 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao{
     private static UserDaoSQLImpl instance = null;
     public UserDaoSQLImpl() {
 
-        super("User");
+        super("User", "user_id");
     }
 
     public static UserDaoSQLImpl getInstance(){
@@ -53,7 +53,7 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao{
     @Override
     public Map<String, Object> object2row(User object) {
         Map<String, Object> item = new TreeMap<String, Object>();
-        item.put("id", object.getId());
+        item.put("user_id", object.getId());
         item.put("username", object.getUsername());
         item.put("email_address", object.getEmailAddress());
         item.put("password", object.getPassword());
@@ -65,7 +65,7 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao{
         return executeQueryUnique("SELECT * FROM Users WHERE username = ?", new Object[]{username});
     }
     public User getByEmailAddress(User email) throws MarketException {
-       return executeQueryUnique("SELECT * FROM Users where emai_address = ?", new Object[]{email});
+       return executeQueryUnique("SELECT * FROM Users where email_address = ?", new Object[]{email});
     }
     @Override
     public boolean validate(String username, String password) throws MarketException{return true;}

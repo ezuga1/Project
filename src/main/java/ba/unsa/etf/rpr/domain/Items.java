@@ -1,5 +1,8 @@
 package ba.unsa.etf.rpr.domain;
 
+import ba.unsa.etf.rpr.business.CategoryManager;
+import ba.unsa.etf.rpr.exceptions.MarketException;
+
 import java.util.Objects;
 
 /**
@@ -7,18 +10,28 @@ import java.util.Objects;
  * @author Ernad Zuga
  */
 public class Items implements Idable{
-    private int itemID;
+    private int id;
     private String itemName;
     private String price;
     private String description;
-    private int categoryID;
+   // private int categoryID;
+    private Category categoryid;
+
+    public Category getCategoryid()  {
+        return categoryid;
+    }
+
+    /*public void setCategory(Category category) {
+        this.category = category;
+    }*/
+
     private int userID;
 
     public int getId(){
-        return itemID;
+        return id;
     }
     public void setId(int id){
-        this.itemID = id;
+        this.id = id;
     }
 
     public String getItemName() {
@@ -32,7 +45,9 @@ public class Items implements Idable{
     public String getPrice() {
         return price;
     }
-
+    public void setCategoryID(Category categoryID){
+        this.categoryid = categoryID;
+    }
     public void setPrice(String price) {
         this.price = price;
     }
@@ -44,14 +59,12 @@ public class Items implements Idable{
     public void setDescription(String description) {
         this.description = description;
     }
-
-    public int getCategoryID() {
-        return categoryID;
+    public Category getCategoryID(){
+        return categoryid;
     }
 
-    public void setCategoryID(int categoryID) {
-        this.categoryID = categoryID;
-    }
+
+
 
     public int getUserID() {
         return userID;

@@ -44,6 +44,10 @@ public class MarketController {
     private TableColumn<Items, String> colPrice;
     @FXML
     private TableColumn<Items, String> colDesc;
+    @FXML
+    private TableColumn<Items, Integer> colCat1;
+    @FXML
+    private TableColumn<Items, String > colCat;
 
     /**
      * Method for setting up market page, with list of available items, searching by category or price and other functions
@@ -54,9 +58,13 @@ public class MarketController {
         colName.setCellValueFactory(new PropertyValueFactory<Items, String>("itemName"));
         colPrice.setCellValueFactory(new PropertyValueFactory<Items, String>("price"));
         colDesc.setCellValueFactory(new PropertyValueFactory<Items, String>("description"));
+        colCat.setCellValueFactory(new PropertyValueFactory<Items,String>("categoryid"));
         ItemsManager itemsManager =  new ItemsManager();
         List<Items> itemsList = itemsManager.getAll();
         ObservableList<Items> items = FXCollections.observableList(itemsList);
+        /*for(Items i : itemsList){
+            colCat.setText(i.getCategory().getName());
+        }*/
         itemsTable.setItems(FXCollections.observableArrayList(itemsList));
 
         CategoryManager categoryManager = new CategoryManager();
@@ -137,7 +145,8 @@ public class MarketController {
         String price = Price.getText();
         ItemsManager itemsManager = new ItemsManager();
         List<Items> items = itemsManager.searchItems(price);
-        itemsTable.setItems(FXCollections.observableArrayList(items));
+        itemsTable.setItems(FXCollections.observableList(items));
+
     }
 
     /**

@@ -23,7 +23,7 @@ public class ItemsDaoSQLImpl extends AbstractDao<Items> implements ItemsDao {
     private static ItemsDaoSQLImpl instance = null;
 
     public ItemsDaoSQLImpl() {
-        super("Items");
+        super("Items", "item_id");
     }
 
     public static ItemsDaoSQLImpl getInstance(){
@@ -45,7 +45,7 @@ public class ItemsDaoSQLImpl extends AbstractDao<Items> implements ItemsDao {
             item.setItemName(rs.getString("item_name"));
             item.setPrice(rs.getString("price"));
             item.setDescription(rs.getString("description"));
-            item.setCategoryID(rs.getInt("category_id"));
+            item.setCategoryID(DaoFactory.categoryDao().getById(rs.getInt("category_id")));
             item.setUserID(rs.getInt("user_id"));
             return item;
         }catch (Exception e){
@@ -66,7 +66,7 @@ public class ItemsDaoSQLImpl extends AbstractDao<Items> implements ItemsDao {
         item.put("item_name", object.getItemName());
         item.put("price", object.getPrice());
         item.put("description", object.getDescription());
-        item.put("category_id", object.getCategoryID());
+        item.put("category_id", object.getCategoryid().getId());
         item.put("user_id", object.getUserID());
         return item;
     }

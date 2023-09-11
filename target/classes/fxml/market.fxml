@@ -60,6 +60,7 @@
               <TableColumn fx:id="colName" prefWidth="100" text="Name" />
               <TableColumn fx:id="colPrice" prefWidth="100" text="Price" />
               <TableColumn fx:id="colDesc" prefWidth="100" text="Description" />
+                  <TableColumn fx:id="colCat" prefWidth="123.0" text="Category Name" />
             </columns>
           </TableView>
         </children>
